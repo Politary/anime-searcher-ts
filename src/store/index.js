@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-// import animeSaga from './main/main.sagas';
-import { rootReducer } from './root.reducer';
+import ongoingsSaga from './ongoings/ongoings.sagas.ts';
+import { rootReducer } from './root.reducer.ts';
 
-// const saga = createSagaMiddleware();
+const saga = createSagaMiddleware();
 
 export const store = configureStore({
     reducer: rootReducer,
-    // middleware: [saga],
+    middleware: [saga],
 });
 
-// saga.run(weatherSaga);
+saga.run(ongoingsSaga);

@@ -6,7 +6,7 @@ export const Layout = () => {
             <header>
                 <p>Header</p>
                 <Link to="/">Home Page</Link>
-                <Link to="/title">Title</Link>
+                <Link to="/animes">Anime</Link>
             </header>
             <Outlet />
             <footer>footer</footer>
