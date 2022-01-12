@@ -1,4 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
+import { Container } from './Layout.styles';
 
 export const Layout = () => {
     return (
@@ -8,7 +9,9 @@ export const Layout = () => {
                 <Link to="/">Home Page</Link>
                 <Link to="/animes">Anime</Link>
             </header>
-            <Outlet />
+            <Container>
+                <Outlet />
+            </Container>
             <footer>footer</footer>
         </>
     );

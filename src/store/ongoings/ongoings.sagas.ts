@@ -13,7 +13,6 @@ function* getOngoingsAction() {
                 `https://api.jikan.moe/v3/search/anime?q=&status=airing&order_by=score`
             )
         );
-        // type anime, status - airing order_by rating
         console.log(ongoingsData);
         yield put(getOngoingsSuccess(ongoingsData.data.results));
     } catch (error) {
