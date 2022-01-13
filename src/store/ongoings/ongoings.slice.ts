@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchOngoings } from '../../types/types';
+
+const initialState: fetchOngoings = {
+    status: 'idle',
+    list: [],
+};
 
 const ongoingsSlice = createSlice({
     name: 'ongoings',
-    initialState: {
-        status: 'idle',
-        list: [],
-    },
+    initialState: initialState,
     reducers: {
         getOngoings: (state) => {
             console.log('getOngoings');

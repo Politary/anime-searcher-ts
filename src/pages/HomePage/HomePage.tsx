@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CardRow } from '../../components/CardRow/CardRow.tsx';
 import { RootState } from '../../store/root.reducer';
 import { useEffect } from 'react';
-import { getOngoings } from '../../store/ongoings/ongoings.slice';
+import { getOngoings } from '../../store/ongoings/ongoings.slice.ts';
 
 export const HomePage = () => {
     const dispatch = useDispatch();
