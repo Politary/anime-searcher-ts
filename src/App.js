@@ -5,6 +5,7 @@ import { AnimesPage } from './pages/Animes/AnimesPage.tsx';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage.tsx';
 
 import { Layout } from './components/Layout/Layout.tsx';
+import { TitlePage } from './pages/TitlePage/TitlePage';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<HomePage />} />
                     <Route path="animes" element={<AnimesPage />} />
+                    <Route path="animes/:title" element={<TitlePage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Route>
             </Routes>

@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-//@ts-ignore
-import { CardRow } from '../../components/CardRow/CardRow.tsx';
+import { CardRow } from '../../components/CardRow/CardRow';
 import { RootState } from '../../store/root.reducer';
 import { useEffect } from 'react';
-import { getOngoings } from '../../store/ongoings/ongoings.slice.ts';
+
+import { getOngoings } from '../../store/ongoings/ongoings.slice';
 
 export const HomePage = () => {
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export const HomePage = () => {
 
     useEffect(() => {
         dispatch(getOngoings());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>

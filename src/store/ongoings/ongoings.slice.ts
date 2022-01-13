@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchOngoings } from '../../types/types';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AnimeDetails, FetchOngoings } from '../../types/types';
 
-const initialState: fetchOngoings = {
+const initialState: FetchOngoings = {
     status: 'idle',
     list: [],
 };
@@ -14,10 +14,10 @@ const ongoingsSlice = createSlice({
             console.log('getOngoings');
             state.status = 'loading';
         },
-        getOngoingsSuccess: (state, action) => {
+        getOngoingsSuccess: (state, action: PayloadAction<AnimeDetails>) => {
             console.log('Success');
             state.status = 'loaded';
-            state.list = action.payload;
+            (state.list as {}) = action.payload;
         },
         getOngoingsFailure: (state, action) => {
             console.log(action.payload);

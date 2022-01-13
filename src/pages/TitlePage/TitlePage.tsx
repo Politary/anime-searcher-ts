@@ -1,7 +1,10 @@
+import { useParams } from 'react-router-dom';
+
 export const TitlePage = () => {
+    const { title } = useParams();
     return (
         <div>
-            <p>Anime Title</p>
+            <p>{title}</p>
         </div>
     );
 };

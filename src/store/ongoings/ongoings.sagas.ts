@@ -5,10 +5,11 @@ import {
     getOngoingsSuccess,
     getOngoingsFailure,
 } from './ongoings.slice';
+import { FetchData } from '../../types/types';
 
 function* getOngoingsAction() {
     try {
-        const ongoingsData = yield call(() =>
+        const ongoingsData: FetchData = yield call(() =>
             axios.get(
                 `https://api.jikan.moe/v3/search/anime?q=&status=airing&order_by=score`
             )
