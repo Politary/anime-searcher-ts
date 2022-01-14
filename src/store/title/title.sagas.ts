@@ -1,17 +1,15 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import axios from 'axios';
 import { getTitle, getTitleSuccess, getTitleFailure } from './title.slice';
 import { FetchData } from '../../types/types';
+import { PayloadAction } from '@reduxjs/toolkit';
+import { API } from '../../core/axios';
 
-function* getTitleAction() {
+function* getTitleAction(action: PayloadAction<number>) {
     try {
         const titleData: FetchData = yield call(() =>
-            axios.get(
-                `https://api.jikan.moe/v3/search/anime?q=&status=airing&order_by=score`
-            )
+            API.get(`/anime/${action.payload}`)
         );
-        console.log(titleData);
-        yield put(getTitleSuccess(titleData.data.results));
+        yield put(getTitleSuccess(titleData.data));
     } catch (error) {
         yield put(getTitleFailure(error));
     }

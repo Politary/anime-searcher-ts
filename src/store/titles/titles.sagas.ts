@@ -7,7 +7,7 @@ import { API } from '../../core/axios';
 function* getTitlesAction(action: PayloadAction<SearchOptions>) {
     try {
         const titlesData: FetchData = yield call(() =>
-            API.get(`${action.payload.type}`, {
+            API.get(`/search/${action.payload.type}`, {
                 params: {
                     page: action.payload.page,
                     status: action.payload.status,

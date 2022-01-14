@@ -7,11 +7,7 @@ export const Card: React.FC<AnimeDetails> = ({ title, image_url, mal_id }) => {
         <StyledCard>
             <Link key={mal_id} to={`/animes/${mal_id}`}>
                 <ImageContainer>
-                    <img
-                        src={`${image_url}`}
-                        alt="titleImage"
-                        id={mal_id!.toString()}
-                    />
+                    <img src={`${image_url}`} alt="titleImage" />
                 </ImageContainer>
                 <Title>{title}</Title>
             </Link>

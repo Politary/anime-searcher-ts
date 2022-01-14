@@ -1,26 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AnimeDetails } from '../../types/types';
+import { TitleDetails } from '../../types/types';
 
 const initialState = {
     status: 'idle',
-    list: [],
+    data: {},
 };
 
 const titleSlice = createSlice({
     name: 'title',
     initialState: initialState,
     reducers: {
-        getTitle: (state) => {
-            console.log('getOngoings');
+        getTitle: (state, action) => {
             state.status = 'loading';
         },
-        getTitleSuccess: (state, action: PayloadAction<AnimeDetails>) => {
-            console.log('Success');
+        getTitleSuccess: (state, action: PayloadAction<TitleDetails>) => {
+            console.log(action.payload);
             state.status = 'loaded';
-            (state.list as {}) = action.payload;
+            (state.data as {}) = action.payload;
         },
         getTitleFailure: (state, action) => {
-            console.log(action.payload);
             state.status = 'error';
         },
     },
