@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AnimeDetails, FetchTitles } from '../../types/types';
+import { AnimeDetails, FetchTitles, SearchOptions } from '../../types/types';
 
 const initialState: FetchTitles = {
     status: 'idle',
@@ -10,7 +10,7 @@ const titlesSlice = createSlice({
     name: 'titles',
     initialState: initialState,
     reducers: {
-        getTitles: (state) => {
+        getTitles: (state, action: PayloadAction<SearchOptions>) => {
             console.log('getTitles');
             state.status = 'loading';
         },

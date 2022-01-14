@@ -11,7 +11,7 @@ export const CardRow: React.FC<OngoingsGrouped> = ({ ongoings }) => {
         <Row>
             {ongoings.list.length
                 ? ongoings.list
-                      .slice(0, 8)
+                      // .slice(0, 8)
                       .map((item) => (
                           <Card
                               title={item.title!.toString()}
