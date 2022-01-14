@@ -24,7 +24,7 @@ export interface FetchData {
     };
 }
 
-export interface FetchOngoings {
+export interface FetchTitles {
     status: string;
     list: AnimeDetails[];
 }

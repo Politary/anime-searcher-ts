@@ -3,14 +3,14 @@ import { CardRow } from '../../components/CardRow/CardRow';
 import { RootState } from '../../store/root.reducer';
 import { useEffect } from 'react';
 
-import { getOngoings } from '../../store/ongoings/ongoings.slice';
+import { getTitles } from '../../store/titles/titles.slice';
 
 export const HomePage = () => {
     const dispatch = useDispatch();
-    const ongoings = useSelector((state: RootState) => state.ongoings);
+    const ongoings = useSelector((state: RootState) => state.titles);
 
     useEffect(() => {
-        dispatch(getOngoings());
+        dispatch(getTitles());
     }, [dispatch]);
 
     return (

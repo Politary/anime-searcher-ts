@@ -1,9 +1,9 @@
 import { Card } from '../Card/Card';
 import { Row } from './CardRow.styles';
-import { FetchOngoings } from '../../types/types';
+import { FetchTitles } from '../../types/types';
 
 interface OngoingsGrouped {
-    ongoings: FetchOngoings;
+    ongoings: FetchTitles;
 }
 
 export const CardRow: React.FC<OngoingsGrouped> = ({ ongoings }) => {

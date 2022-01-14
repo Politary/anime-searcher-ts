@@ -1,9 +1,9 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import ongoingsReducer from './ongoings/ongoings.slice';
+import titlesReducer from './titles/titles.slice';
 import titleReducer from './title/title.slice';
 
 export const rootReducer = combineReducers({
-    ongoings: ongoingsReducer,
+    titles: titlesReducer,
     title: titleReducer,
 });
 
