@@ -13,7 +13,7 @@ export const HomePage = () => {
         type: 'anime',
         status: 'airing',
         order_by: 'score',
-        limit: 5,
+        limit: 6,
     };
 
     useEffect(() => {

@@ -20,7 +20,7 @@ export const AnimesPage = () => {
 
     return (
         <div>
-            <h2>Ongoings</h2>
+            <h2>Anime</h2>
             <CardRow titles={titles} wrapOption={true} />
         </div>
     );

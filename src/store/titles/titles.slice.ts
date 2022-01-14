@@ -11,16 +11,13 @@ const titlesSlice = createSlice({
     initialState: initialState,
     reducers: {
         getTitles: (state, action: PayloadAction<SearchOptions>) => {
-            console.log('getTitles');
             state.status = 'loading';
         },
         getTitlesSuccess: (state, action: PayloadAction<AnimeDetails>) => {
-            console.log('Success');
             state.status = 'loaded';
             (state.list as {}) = action.payload;
         },
         getTitlesFailure: (state, action) => {
-            console.log(action.payload);
             state.status = 'error';
         },
     },

@@ -10,15 +10,14 @@ export const CardRow: React.FC<OngoingsGrouped> = ({ titles, wrapOption }) => {
     return (
         <Grid wrapOption={wrapOption}>
             {titles.list.length
-                ? titles.list
-                      // .slice(0, 8)
-                      .map((item) => (
-                          <Card
-                              title={item.title!.toString()}
-                              image_url={item.image_url}
-                              key={item.mal_id}
-                          />
-                      ))
+                ? titles.list.map((item) => (
+                      <Card
+                          title={item.title!.toString()}
+                          image_url={item.image_url}
+                          key={item.mal_id}
+                          mal_id={item.mal_id}
+                      />
+                  ))
                 : null}
         </Grid>
     );

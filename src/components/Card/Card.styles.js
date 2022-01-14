@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 export const StyledCard = styled.div`
     flex-grow: 1;
     background-color: lightblue;
-    margin: 0.5rem auto;
+    margin: 1rem;
     width: 150.156px;
 `;
 
