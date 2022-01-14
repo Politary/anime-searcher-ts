@@ -46,6 +46,7 @@ export interface TitleDetails {
 
 export interface SearchOptions {
     type: string;
+    q?: string | undefined;
     page?: number | undefined;
     status?: string | undefined;
     rated?: string | undefined;
