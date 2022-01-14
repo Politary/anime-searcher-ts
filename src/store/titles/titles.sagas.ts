@@ -1,12 +1,12 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { getTitles, getTitlesSuccess, getTitlesFailure } from './titles.slice';
-import { FetchData, SearchOptions } from '../../types/types';
+import { FetchList, SearchOptions } from '../../types/types';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { API } from '../../core/axios';
 
 function* getTitlesAction(action: PayloadAction<SearchOptions>) {
     try {
-        const titlesData: FetchData = yield call(() =>
+        const titlesData: FetchList = yield call(() =>
             API.get(`/search/${action.payload.type}`, {
                 params: {
                     page: action.payload.page,

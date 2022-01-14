@@ -14,7 +14,7 @@ const titleSlice = createSlice({
             state.status = 'loading';
         },
         getTitleSuccess: (state, action: PayloadAction<TitleDetails>) => {
-            console.log(action.payload);
+            console.log(action);
             state.status = 'loaded';
             (state.data as {}) = action.payload;
         },

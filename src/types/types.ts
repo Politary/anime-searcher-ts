@@ -62,10 +62,14 @@ export interface AppProps {
     wrapOption?: boolean;
 }
 
-export interface FetchData {
+export interface FetchList {
     data: {
         results: {};
     };
+}
+
+export interface FetchObj {
+    data: {};
 }
 
 export interface FetchTitles {
