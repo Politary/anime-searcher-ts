@@ -31,6 +31,7 @@ export interface SearchOptions {
 
 export interface AppProps {
     to?: string | undefined;
+    wrapOption?: boolean;
 }
 
 export interface FetchData {

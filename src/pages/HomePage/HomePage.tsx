@@ -4,7 +4,6 @@ import { RootState } from '../../store/root.reducer';
 import { useEffect } from 'react';
 
 import { getTitles } from '../../store/titles/titles.slice';
-import { SearchOptions } from '../../types/types';
 
 export const HomePage = () => {
     const dispatch = useDispatch();
@@ -24,7 +23,7 @@ export const HomePage = () => {
     return (
         <div>
             <h2>Ongoings</h2>
-            <CardRow ongoings={ongoings} />
+            <CardRow titles={ongoings} wrapOption={false} />
         </div>
     );
 };

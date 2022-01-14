@@ -1,24 +1,25 @@
 import { Card } from '../Card/Card';
-import { Row } from './CardRow.styles';
-import { FetchTitles } from '../../types/types';
+import { Grid } from './CardRow.styles';
+import { AppProps, FetchTitles } from '../../types/types';
 
-interface OngoingsGrouped {
-    ongoings: FetchTitles;
+interface OngoingsGrouped extends AppProps {
+    titles: FetchTitles;
 }
 
-export const CardRow: React.FC<OngoingsGrouped> = ({ ongoings }) => {
+export const CardRow: React.FC<OngoingsGrouped> = ({ titles, wrapOption }) => {
     return (
-        <Row>
-            {ongoings.list.length
-                ? ongoings.list
+        <Grid wrapOption={wrapOption}>
+            {titles.list.length
+                ? titles.list
                       // .slice(0, 8)
                       .map((item) => (
                           <Card
                               title={item.title!.toString()}
+                              image_url={item.image_url}
                               key={item.mal_id}
                           />
                       ))
                 : null}
-        </Row>
+        </Grid>
     );
 };
