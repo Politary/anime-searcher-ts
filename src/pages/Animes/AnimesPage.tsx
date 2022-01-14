@@ -3,6 +3,7 @@ import { RootState } from '../../store/root.reducer';
 import { useEffect } from 'react';
 import { getTitles } from '../../store/titles/titles.slice';
 import { CardRow } from '../../components/CardRow/CardRow';
+import { SearchBar } from '../../components/Searchbar/SearchBar';
 
 export const AnimesPage = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export const AnimesPage = () => {
     return (
         <div>
             <h2>Anime</h2>
+            <SearchBar />
             <CardRow titles={titles} wrapOption={true} />
         </div>
     );
