@@ -15,6 +15,7 @@ import { shallowEqual } from '../../utils/utils';
 function* getTitlesAction(action: PayloadAction<SearchOptions>) {
     const prevOptions = store.getState().titles.options;
     const searchParams = {
+        q: action.payload.q,
         page: action.payload.page,
         status: action.payload.status,
         rated: action.payload.rated,
@@ -25,8 +26,6 @@ function* getTitlesAction(action: PayloadAction<SearchOptions>) {
         sort: action.payload.sort,
         letter: action.payload.letter,
     };
-    console.log(prevOptions);
-    console.log(searchParams);
     try {
         if (!shallowEqual(prevOptions, searchParams)) {
             const titlesData: FetchList = yield call(() =>
@@ -36,10 +35,11 @@ function* getTitlesAction(action: PayloadAction<SearchOptions>) {
                     },
                 })
             );
+            console.log('success');
             yield put(getTitlesSuccess(titlesData.data.results));
             yield put(getTitlesOptions(searchParams));
         } else {
-            console.log('same request');
+            console.log('duplicate request');
             yield put(getTitlesReturn());
         }
     } catch (error) {

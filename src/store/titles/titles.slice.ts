@@ -27,6 +27,12 @@ const titlesSlice = createSlice({
         },
         getTitlesFailure: (state, action) => {
             state.status = 'error';
+            console.log(action.payload);
+        },
+        clearTitles: (state) => {
+            (state.list as {}) = {};
+            state.status = 'idle';
+            state.options = {};
         },
     },
 });
@@ -38,4 +44,5 @@ export const {
     getTitlesReturn,
     getTitlesOptions,
     getTitlesFailure,
+    clearTitles,
 } = titlesSlice.actions;

@@ -3,7 +3,6 @@ import { RootState } from '../../store/root.reducer';
 import React, { useEffect, useState } from 'react';
 import { getTitles } from '../../store/titles/titles.slice';
 import { CardRow } from '../../components/CardRow/CardRow';
-import { SearchBar } from '../../components/Searchbar/SearchBar';
 import { SearchButton } from '../../components/SearchButton/SearchButton';
 import { SearchOptions } from '../../types/types';
 import { OptionSelect } from '../../components/OptionSelect/OptionSelect';

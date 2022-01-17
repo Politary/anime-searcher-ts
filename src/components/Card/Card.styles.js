@@ -15,6 +15,7 @@ export const ImageContainer = styled.div`
         min-height: 100%;
         max-height: 100%;
         min-width: 100%;
+        max-width: 100%;
         object-fit: cover;
     }
 `;
