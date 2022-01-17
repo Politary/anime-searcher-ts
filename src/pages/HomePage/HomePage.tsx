@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { CardRow } from '../../components/CardRow/CardRow';
 import { RootState } from '../../store/root.reducer';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { getTitles } from '../../store/titles/titles.slice';
 
@@ -20,10 +20,13 @@ export const HomePage = () => {
         dispatch(getTitles(searchOptions));
     }, [dispatch]);
 
-    return (
-        <div>
-            <h2>Ongoings</h2>
-            <CardRow titles={ongoings} wrapOption={false} />
-        </div>
-    );
+    if (ongoings.status === 'loaded')
+        return (
+            <div>
+                <h2>Ongoings</h2>
+                <CardRow titles={ongoings} wrapOption={false} />
+            </div>
+        );
+    if (ongoings.status === 'loading' || 'idle') return <div>Loading</div>;
+    if (ongoings.status === 'error') return <div>Something went wrong</div>;
 };

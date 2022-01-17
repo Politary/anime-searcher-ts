@@ -10,6 +10,7 @@ export const Layout = () => {
                 <p>Header</p>
                 <CustomLink to="/">Home</CustomLink>
                 <CustomLink to="/animes">Anime</CustomLink>
+                <CustomLink to="/search">Search</CustomLink>
             </header>
             <Container>
                 <Outlet />

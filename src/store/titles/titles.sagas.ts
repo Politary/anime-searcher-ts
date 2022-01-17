@@ -2,7 +2,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import { getTitles, getTitlesSuccess, getTitlesFailure } from './titles.slice';
 import { FetchList, SearchOptions } from '../../types/types';
 import { PayloadAction } from '@reduxjs/toolkit';
-import { API } from '../../core/axios';
+import { API } from '../../services/axios';
 
 function* getTitlesAction(action: PayloadAction<SearchOptions>) {
     try {
