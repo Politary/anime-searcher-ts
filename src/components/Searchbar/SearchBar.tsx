@@ -5,8 +5,9 @@ export const SearchBar: React.FC<any> = ({
     handleChange,
     handleSubmit,
 }) => {
-    const handleInputSubmit = (e: React.FormEvent<EventTarget>): void => {
-        // @ts-ignore
+    const handleInputSubmit = (
+        e: React.KeyboardEvent<HTMLDivElement>
+    ): void => {
         if (e.code === 'Enter') {
             console.log('Enter');
             handleSubmit();
