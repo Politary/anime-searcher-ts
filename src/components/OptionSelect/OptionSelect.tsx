@@ -1,8 +1,17 @@
-export const OptionSelect: React.FC<any> = ({ handleChange, value }) => {
+import { OptionsSelect } from '../../types/types';
+
+export const OptionSelect: React.FC<OptionsSelect> = ({
+    handleChange,
+    value,
+    items,
+}) => {
     return (
         <select onChange={handleChange} name={'Sort by'} value={value}>
-            <option value={'score'}>Score</option>
-            <option value={'rating'}>Rating</option>
+            {items.map((item) => (
+                <option value={item.value} key={item.value}>
+                    {item.name}
+                </option>
+            ))}
         </select>
     );
 };

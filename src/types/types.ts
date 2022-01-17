@@ -58,6 +58,12 @@ export interface SearchOptions {
     letter?: string | undefined;
 }
 
+export interface OptionsSelect {
+    handleChange: (e: React.FormEvent<EventTarget>) => void;
+    value: string | undefined;
+    items: { name: string; value: string }[];
+}
+
 export interface AppProps {
     to?: string | undefined;
     wrapOption?: boolean;
@@ -76,6 +82,7 @@ export interface FetchObj {
 export interface FetchTitles {
     status: string;
     list: AnimeDetails[];
+    options: {};
 }
 
 export interface FetchTitle {

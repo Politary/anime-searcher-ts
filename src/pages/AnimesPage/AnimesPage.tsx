@@ -12,13 +12,23 @@ export const AnimesPage = () => {
     const dispatch = useDispatch();
     const titles = useSelector((state: RootState) => state.titles);
 
-    const [inputValue, setInputValue] = useState<string | null>('');
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
         q: '',
         type: 'anime',
         order_by: 'score',
         page: 1,
     });
+    const orderByItems = [];
+    orderByItems.push(
+        { name: 'Score', value: 'score' },
+        { name: 'Title', value: 'title' },
+        { name: 'Rating', value: 'rating' }
+    );
+    const sortItems = [];
+    sortItems.push(
+        { name: 'Descending', value: 'desc' },
+        { name: 'Ascending', value: 'asc' }
+    );
 
     const handleOrderByChange = (e: React.FormEvent<EventTarget>): void => {
         let target = e.target as HTMLInputElement;
@@ -29,14 +39,22 @@ export const AnimesPage = () => {
         }));
     };
 
+    const handleSortChange = (e: React.FormEvent<EventTarget>): void => {
+        let target = e.target as HTMLInputElement;
+        // @ts-ignore
+        setSearchOptions((prevState) => ({
+            ...prevState,
+            sort: target.value as any,
+        }));
+    };
+
     const handleSearch = () => {
-        console.log('handleSearch');
-        // dispatch(getTitles(searchOptions));
+        dispatch(getTitles(searchOptions));
     };
 
     useEffect(() => {
         dispatch(getTitles(searchOptions));
-    }, [dispatch, searchOptions]);
+    }, [dispatch]);
 
     if (titles.status === 'loaded')
         return (
@@ -46,6 +64,12 @@ export const AnimesPage = () => {
                     <OptionSelect
                         handleChange={handleOrderByChange}
                         value={searchOptions.order_by}
+                        items={orderByItems}
+                    />
+                    <OptionSelect
+                        handleChange={handleSortChange}
+                        value={searchOptions.sort}
+                        items={sortItems}
                     />
                 </form>
                 <SearchButton handleSearch={handleSearch}>Search</SearchButton>

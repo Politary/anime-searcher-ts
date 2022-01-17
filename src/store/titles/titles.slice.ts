@@ -4,6 +4,7 @@ import { AnimeDetails, FetchTitles, SearchOptions } from '../../types/types';
 const initialState: FetchTitles = {
     status: 'idle',
     list: [],
+    options: {},
 };
 
 const titlesSlice = createSlice({
@@ -17,6 +18,13 @@ const titlesSlice = createSlice({
             state.status = 'loaded';
             (state.list as {}) = action.payload;
         },
+        getTitlesReturn: (state) => {
+            state.status = 'loaded';
+            (state.list as {}) = state.list;
+        },
+        getTitlesOptions: (state, action: PayloadAction<AnimeDetails>) => {
+            state.options = action.payload;
+        },
         getTitlesFailure: (state, action) => {
             state.status = 'error';
         },
@@ -24,5 +32,10 @@ const titlesSlice = createSlice({
 });
 
 export default titlesSlice.reducer;
-export const { getTitles, getTitlesSuccess, getTitlesFailure } =
-    titlesSlice.actions;
+export const {
+    getTitles,
+    getTitlesSuccess,
+    getTitlesReturn,
+    getTitlesOptions,
+    getTitlesFailure,
+} = titlesSlice.actions;
