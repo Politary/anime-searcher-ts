@@ -10,7 +10,7 @@ import { FetchList, SearchOptions } from '../../types/types';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { API } from '../../services/axios';
 import { store } from '../index';
-import { shallowEqual } from '../../utils/utils';
+import { shallowEqual } from '../../utils/shallowEqual';
 
 function* getTitlesAction(action: PayloadAction<SearchOptions>) {
     const prevOptions = store.getState().titles.options;

@@ -1,8 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import titlesSaga from './titles/titles.sagas.ts';
-import titleSaga from './title/title.sagas';
 import { rootReducer } from './root.reducer.ts';
+import rootSaga from './root.saga';
 
 const saga = createSagaMiddleware();
 
@@ -11,5 +10,4 @@ export const store = configureStore({
     middleware: [saga],
 });
 
-saga.run(titlesSaga);
-saga.run(titleSaga);
+saga.run(rootSaga);
