@@ -1,6 +1,7 @@
 import React from 'react';
+import { AppProps, OptionsSelect } from '../../types/types';
 
-export const SearchBar: React.FC<any> = ({
+export const SearchBar: React.FC<AppProps> = ({
     value,
     handleChange,
     handleSubmit,
@@ -8,7 +9,7 @@ export const SearchBar: React.FC<any> = ({
     const handleInputSubmit = (
         e: React.KeyboardEvent<HTMLDivElement>
     ): void => {
-        if (e.code === 'Enter') {
+        if (e.code === 'Enter' && handleSubmit) {
             console.log('Enter');
             handleSubmit();
         }

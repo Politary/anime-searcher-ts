@@ -69,7 +69,7 @@ export const AnimesPage = () => {
                         items={sortItems}
                     />
                 </form>
-                <SearchButton handleSearch={handleSearch}>Search</SearchButton>
+                <SearchButton handleSubmit={handleSearch}>Search</SearchButton>
                 <CardRow titles={titles} wrapOption={true} />
             </div>
         );

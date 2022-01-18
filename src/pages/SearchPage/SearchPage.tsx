@@ -42,8 +42,18 @@ export const SearchPage = () => {
                 handleChange={handleChange}
                 handleSubmit={handleSearch}
             />
-            <SearchButton handleSearch={handleSearch}>Search</SearchButton>
-            <CardRow titles={titles} />
+            <SearchButton handleSubmit={handleSearch}>Search</SearchButton>
+            {/*<CardRow titles={titles} />*/}
+
+            {(() => {
+                if (titles.status === 'loaded') {
+                    return <CardRow titles={titles} />;
+                } else if (titles.status === 'loading') {
+                    return <div>Loading...</div>;
+                } else if (titles.status === 'error') {
+                    return <div>Something went wrong</div>;
+                }
+            })()}
         </div>
     );
 };

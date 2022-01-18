@@ -67,6 +67,9 @@ export interface OptionsSelect {
 export interface AppProps {
     to?: string | undefined;
     wrapOption?: boolean;
+    value?: string | undefined;
+    handleChange?: (e: React.FormEvent<EventTarget>) => void;
+    handleSubmit?: () => void;
 }
 
 export interface FetchList {
