@@ -31,7 +31,6 @@ export const AnimesPage = () => {
 
     const handleOrderByChange = (e: React.FormEvent<EventTarget>): void => {
         let target = e.target as HTMLInputElement;
-        // @ts-ignore
         setSearchOptions((prevState) => ({
             ...prevState,
             order_by: target.value as any,
@@ -40,7 +39,6 @@ export const AnimesPage = () => {
 
     const handleSortChange = (e: React.FormEvent<EventTarget>): void => {
         let target = e.target as HTMLInputElement;
-        // @ts-ignore
         setSearchOptions((prevState) => ({
             ...prevState,
             sort: target.value as any,
