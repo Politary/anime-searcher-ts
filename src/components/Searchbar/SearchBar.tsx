@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppProps, OptionsSelect } from '../../types/types';
+import { AppProps } from '../../types/types';
 
 export const SearchBar: React.FC<AppProps> = ({
     value,

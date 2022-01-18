@@ -73,6 +73,7 @@ export const AnimesPage = () => {
                 <CardRow titles={titles} wrapOption={true} />
             </div>
         );
-    if (titles.status === 'loading' || 'idle') return <div>Loading</div>;
+    if (titles.status === 'idle') return <div />;
+    if (titles.status === 'loading') return <div>Loading</div>;
     if (titles.status === 'error') return <div>Something went wrong</div>;
 };

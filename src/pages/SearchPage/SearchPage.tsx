@@ -48,9 +48,14 @@ export const SearchPage = () => {
             {(() => {
                 if (titles.status === 'loaded') {
                     return <CardRow titles={titles} />;
-                } else if (titles.status === 'loading') {
+                }
+                if (titles.status === 'idle') {
+                    return <div />;
+                }
+                if (titles.status === 'loading') {
                     return <div>Loading...</div>;
-                } else if (titles.status === 'error') {
+                }
+                if (titles.status === 'error') {
                     return <div>Something went wrong</div>;
                 }
             })()}
