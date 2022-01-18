@@ -1,10 +1,10 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { HomePage } from './pages/HomePage/HomePage.tsx';
-import { AnimesPage } from './pages/AnimesPage/AnimesPage.tsx';
-import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage.tsx';
+import { HomePage } from './pages/HomePage/HomePage';
+import { AnimesPage } from './pages/AnimesPage/AnimesPage';
+import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 
-import { Layout } from './modules/layout/components/Layout/Layout.tsx';
+import { Layout } from './modules/layout/components/Layout/Layout';
 import { TitlePage } from './pages/TitlePage/TitlePage';
 import { SearchPage } from './pages/SearchPage/SearchPage';
 
@@ -15,11 +15,13 @@ const routes = {
         {
             index: true,
             path: '',
+            // @ts-ignore
             element: <HomePage />,
         },
         {
             index: false,
             path: 'animes',
+            // @ts-ignore
             element: <AnimesPage />,
         },
         {
@@ -30,6 +32,7 @@ const routes = {
         {
             index: false,
             path: 'animes/:id/',
+            // @ts-ignore
             element: <TitlePage />,
         },
         {
