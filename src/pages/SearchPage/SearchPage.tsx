@@ -10,7 +10,6 @@ import { CardRow } from '../../components/CardRow/CardRow';
 export const SearchPage = () => {
     const dispatch = useDispatch();
     const titles = useSelector((state: RootState) => state.titles);
-    const [inputValue, setInputValue] = useState<string>('');
 
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
         q: '',
@@ -21,7 +20,6 @@ export const SearchPage = () => {
 
     const handleChange = (e: React.FormEvent<EventTarget>): void => {
         let target = e.target as HTMLInputElement;
-        // @ts-ignore
         setSearchOptions((prevState) => ({
             ...prevState,
             q: target.value.toString() as string,

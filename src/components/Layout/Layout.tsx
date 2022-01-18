@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Container } from './Layout.styles';
-// @ts-ignore
-import { CustomLink } from '../CustomLink/CustomLink.tsx';
+import { CustomLink } from '../CustomLink/CustomLink';
 
 export const Layout = () => {
     return (
