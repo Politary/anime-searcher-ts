@@ -1,6 +1,6 @@
 import { ImageContainer, StyledCard, Title } from './Card.styles';
 import { Link } from 'react-router-dom';
-import { AnimeDetails } from '../../types/types';
+import { AnimeDetails } from '../../../../types/types';
 
 export const Card: React.FC<AnimeDetails> = ({ title, image_url, mal_id }) => {
     return (

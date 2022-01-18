@@ -1,4 +1,4 @@
-import { AppProps, FetchTitle } from '../../types/types';
+import { AppProps, FetchTitle } from '../../../../types/types';
 import { ImageContainer, InfoContainer, Section } from './TitleSection.styles';
 
 interface TitleGrouped extends AppProps {

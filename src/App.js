@@ -4,7 +4,7 @@ import { HomePage } from './pages/HomePage/HomePage.tsx';
 import { AnimesPage } from './pages/AnimesPage/AnimesPage.tsx';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage.tsx';
 
-import { Layout } from './components/Layout/Layout.tsx';
+import { Layout } from './modules/layout/components/Layout/Layout.tsx';
 import { TitlePage } from './pages/TitlePage/TitlePage';
 import { SearchPage } from './pages/SearchPage/SearchPage';
 

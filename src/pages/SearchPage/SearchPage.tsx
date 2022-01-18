@@ -1,11 +1,11 @@
-import { SearchBar } from '../../components/Searchbar/SearchBar';
-import { SearchButton } from '../../components/SearchButton/SearchButton';
+import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
+import { SearchButton } from '../../modules/common/components/SearchButton/SearchButton';
 import { getTitles, clearTitles } from '../../store/titles/titles.slice';
 import React, { useEffect, useState } from 'react';
 import { SearchOptions } from '../../types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/root.reducer';
-import { CardRow } from '../../components/CardRow/CardRow';
+import { CardRow } from '../../modules/common/components/CardRow/CardRow';
 
 export const SearchPage = () => {
     const dispatch = useDispatch();

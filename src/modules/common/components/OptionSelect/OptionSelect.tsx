@@ -1,4 +1,4 @@
-import { OptionsSelect } from '../../types/types';
+import { OptionsSelect } from '../../../../types/types';
 
 export const OptionSelect: React.FC<OptionsSelect> = ({
     handleChange,

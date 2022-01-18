@@ -1,6 +1,6 @@
 import { Card } from '../Card/Card';
 import { Grid } from './CardRow.styles';
-import { AppProps, FetchTitles } from '../../types/types';
+import { AppProps, FetchTitles } from '../../../../types/types';
 
 interface OngoingsGrouped extends AppProps {
     titles: FetchTitles;

@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/root.reducer';
 import React, { useEffect, useState } from 'react';
 import { getTitles } from '../../store/titles/titles.slice';
-import { CardRow } from '../../components/CardRow/CardRow';
-import { SearchButton } from '../../components/SearchButton/SearchButton';
+import { CardRow } from '../../modules/common/components/CardRow/CardRow';
+import { SearchButton } from '../../modules/common/components/SearchButton/SearchButton';
 import { SearchOptions } from '../../types/types';
-import { OptionSelect } from '../../components/OptionSelect/OptionSelect';
+import { OptionSelect } from '../../modules/common/components/OptionSelect/OptionSelect';
 
 export const AnimesPage = () => {
     const dispatch = useDispatch();

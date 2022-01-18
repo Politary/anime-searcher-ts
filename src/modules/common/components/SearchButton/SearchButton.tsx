@@ -1,4 +1,4 @@
-import { AppProps } from '../../types/types';
+import { AppProps } from '../../../../types/types';
 
 export const SearchButton: React.FC<AppProps> = ({
     handleSubmit,
