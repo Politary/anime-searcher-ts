@@ -33,7 +33,7 @@ export const AnimesPage = () => {
         let target = e.target as HTMLInputElement;
         setSearchOptions((prevState) => ({
             ...prevState,
-            order_by: target.value as any,
+            order_by: target.value,
         }));
     };
 
@@ -41,7 +41,7 @@ export const AnimesPage = () => {
         let target = e.target as HTMLInputElement;
         setSearchOptions((prevState) => ({
             ...prevState,
-            sort: target.value as any,
+            sort: target.value,
         }));
     };
 
