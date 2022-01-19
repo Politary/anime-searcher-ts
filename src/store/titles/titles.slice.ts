@@ -14,7 +14,10 @@ const titlesSlice = createSlice({
         getTitles: (state, action: PayloadAction<SearchOptions>) => {
             state.status = 'loading';
         },
-        getTitlesSuccess: (state, action: PayloadAction<AnimeDetails>) => {
+        getTitlesSuccess: (
+            state,
+            action: PayloadAction<Partial<AnimeDetails>>
+        ) => {
             state.status = 'loaded';
             (state.list as {}) = action.payload;
         },
@@ -22,7 +25,10 @@ const titlesSlice = createSlice({
             state.status = 'loaded';
             (state.list as {}) = state.list;
         },
-        getTitlesOptions: (state, action: PayloadAction<AnimeDetails>) => {
+        getTitlesOptions: (
+            state,
+            action: PayloadAction<Partial<AnimeDetails>>
+        ) => {
             state.options = action.payload;
         },
         getTitlesFailure: (state, action) => {
