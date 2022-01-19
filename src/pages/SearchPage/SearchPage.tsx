@@ -22,7 +22,7 @@ export const SearchPage = () => {
         let target = e.target as HTMLInputElement;
         setSearchOptions((prevState) => ({
             ...prevState,
-            q: target.value.toString() as string,
+            q: target.value.toString(),
         }));
     };
 

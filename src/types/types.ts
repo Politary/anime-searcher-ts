@@ -65,7 +65,7 @@ export interface OptionsSelect {
 }
 
 export interface AppProps {
-    to?: string | undefined;
+    to?: string;
     wrapOption?: boolean;
     value?: string | undefined;
     handleChange?: (e: React.FormEvent<EventTarget>) => void;
@@ -79,7 +79,12 @@ export interface FetchList {
 }
 
 export interface FetchObj {
+    config: {};
     data: {};
+    headers: {};
+    request: {};
+    status: number;
+    statusText: string;
 }
 
 export interface FetchTitles {
