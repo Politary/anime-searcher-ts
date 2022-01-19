@@ -13,6 +13,7 @@ export const HomePage = () => {
         type: 'anime',
         status: 'airing',
         order_by: 'score',
+        sort: 'desc',
         limit: 6,
     };
 

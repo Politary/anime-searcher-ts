@@ -15,6 +15,7 @@ export const SearchPage = () => {
         q: '',
         type: 'anime',
         order_by: 'score',
+        sort: 'desc',
         page: 1,
     });
 

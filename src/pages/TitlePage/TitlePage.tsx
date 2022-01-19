@@ -15,7 +15,9 @@ export const TitlePage = () => {
         dispatch(getTitle(id));
     }, [dispatch, id]);
 
-    if (title.status === 'loaded') return <TitleSection title={title} />;
+    console.log(title.data);
+
+    if (title.status === 'loaded') return <TitleSection title={title.data} />;
     if (title.status === 'idle') return <div />;
     if (title.status === 'loading') return <div>Loading</div>;
     if (title.status === 'error') return <div>Something went wrong</div>;

@@ -1,6 +1,7 @@
 export interface AnimeDetails {
     mal_id: number;
     url: string;
+    images: { jpg: { image_url: string } };
     image_url: string;
     title: string | undefined;
     airing: boolean;
@@ -14,34 +15,36 @@ export interface AnimeDetails {
     rate: string;
 }
 
+export interface AnimeDetailsArray extends Array<AnimeDetails> {}
+
 export interface TitleDetails {
-    request_hash?: string;
-    request_cached?: boolean;
-    request_cache_expiry?: number;
-    mal_id?: number;
-    url?: string;
-    image_url?: string;
-    trailer_url?: string;
-    title?: string;
-    title_english?: string;
-    title_japanese?: string;
-    type?: string;
-    source?: string;
-    episodes?: null;
-    status?: string;
-    airing?: boolean;
-    duration?: string;
-    rating?: string;
-    score?: number;
-    scored_by?: number;
-    rank?: number;
-    popularity?: number;
-    members?: number;
-    favorites?: number;
-    synopsis?: string;
-    background?: null;
-    premiered?: string;
-    broadcast?: string;
+    request_hash: string;
+    request_cached: boolean;
+    request_cache_expiry: number;
+    mal_id: number;
+    url: string;
+    images: { jpg: { image_url: string } };
+    trailer_url: string;
+    title: string;
+    title_english: string;
+    title_japanese: string;
+    type: string;
+    source: string;
+    episodes: null;
+    status: string;
+    airing: boolean;
+    duration: string;
+    rating: string;
+    score: number;
+    scored_by: number;
+    rank: number;
+    popularity: number;
+    members: number;
+    favorites: number;
+    synopsis: string;
+    background: null;
+    premiered: string;
+    broadcast: string;
 }
 
 export interface SearchOptions {
@@ -74,13 +77,15 @@ export interface AppProps {
 
 export interface FetchList {
     data: {
-        results: {};
+        data: [];
     };
 }
 
 export interface FetchObj {
     config: {};
-    data: {};
+    data: {
+        data: TitleDetails;
+    };
     headers: {};
     request: {};
     status: number;

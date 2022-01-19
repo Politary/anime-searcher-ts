@@ -13,7 +13,7 @@ export const CardRow: React.FC<OngoingsGrouped> = ({ titles, wrapOption }) => {
                 ? titles.list.map((item) => (
                       <Card
                           title={item.title!.toString()}
-                          image_url={item.image_url}
+                          image_url={item.images.jpg.image_url}
                           key={item.mal_id}
                           mal_id={item.mal_id}
                       />

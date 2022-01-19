@@ -29,15 +29,16 @@ function* getTitlesAction(action: PayloadAction<SearchOptions>) {
     try {
         if (!shallowEqual(prevOptions, searchParams)) {
             const titlesData: FetchList = yield call(() =>
-                API.get(`/search/${action.payload.type}`, {
+                API.get(`/${action.payload.type}`, {
                     params: {
                         ...searchParams,
                     },
                 })
             );
-            console.log(titlesData);
+            console.log(searchParams);
+            console.log(titlesData.data.data);
             console.log('success');
-            yield put(getTitlesSuccess(titlesData.data.results));
+            yield put(getTitlesSuccess(titlesData.data.data));
             yield put(getTitlesOptions(searchParams));
         } else {
             console.log('duplicate request');

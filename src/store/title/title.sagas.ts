@@ -9,7 +9,7 @@ function* getTitleAction(action: PayloadAction<number>) {
         const titleData: FetchObj = yield call(() =>
             API.get(`/anime/${action.payload}`)
         );
-        yield put(getTitleSuccess(titleData.data));
+        yield put(getTitleSuccess(titleData.data.data));
     } catch (error) {
         yield put(getTitleFailure(error));
     }

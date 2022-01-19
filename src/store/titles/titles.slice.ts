@@ -1,5 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AnimeDetails, FetchTitles, SearchOptions } from '../../types/types';
+import {
+    AnimeDetails,
+    AnimeDetailsArray,
+    FetchTitles,
+    SearchOptions,
+} from '../../types/types';
 
 const initialState: FetchTitles = {
     status: 'idle',
@@ -16,7 +21,7 @@ const titlesSlice = createSlice({
         },
         getTitlesSuccess: (
             state,
-            action: PayloadAction<Partial<AnimeDetails>>
+            action: PayloadAction<Partial<AnimeDetailsArray>>
         ) => {
             state.status = 'loaded';
             (state.list as {}) = action.payload;
