@@ -3,7 +3,7 @@ import { RootState } from '../../store/root.reducer';
 import React, { useEffect, useState } from 'react';
 import { getTitles } from '../../store/titles/titles.slice';
 import { CardRow } from '../../modules/common/components/CardRow/CardRow';
-import { SearchButton } from '../../modules/common/components/SearchButton/SearchButton';
+import { CustomButton } from '../../modules/common/components/CustomButton/CustomButton';
 import { SearchOptions } from '../../types/types';
 import { OptionSelect } from '../../modules/common/components/OptionSelect/OptionSelect';
 
@@ -70,7 +70,7 @@ export const AnimesPage = () => {
                         items={sortItems}
                     />
                 </form>
-                <SearchButton handleSubmit={handleSearch}>Search</SearchButton>
+                <CustomButton handleSubmit={handleSearch}>Search</CustomButton>
                 <CardRow titles={titles} wrapOption={true} />
             </div>
         );

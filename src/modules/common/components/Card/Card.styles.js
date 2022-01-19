@@ -8,6 +8,7 @@ export const StyledCard = styled.div`
 `;
 
 export const ImageContainer = styled.div`
+    position: relative;
     min-height: 200px;
     max-height: 200px;
     img {
@@ -26,4 +27,10 @@ export const Title = styled.span`
     overflow: hidden;
     -webkit-line-clamp: 1;
     text-overflow: ellipsis;
+`;
+
+export const SvgContainer = styled.div`
+    position: absolute;
+    right: 0;
+    top: 0;
 `;

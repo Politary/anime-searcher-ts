@@ -1,5 +1,5 @@
 import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
-import { SearchButton } from '../../modules/common/components/SearchButton/SearchButton';
+import { CustomButton } from '../../modules/common/components/CustomButton/CustomButton';
 import { getTitles, clearTitles } from '../../store/titles/titles.slice';
 import React, { useEffect, useState } from 'react';
 import { SearchOptions } from '../../types/types';
@@ -43,7 +43,7 @@ export const SearchPage = () => {
                 handleChange={handleChange}
                 handleSubmit={handleSearch}
             />
-            <SearchButton handleSubmit={handleSearch}>Search</SearchButton>
+            <CustomButton handleSubmit={handleSearch}>Search</CustomButton>
             {/*<CardRow titles={titles} />*/}
 
             {(() => {

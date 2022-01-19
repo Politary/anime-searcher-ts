@@ -10,6 +10,7 @@ export const Layout = () => {
                 <CustomLink to="/">Home</CustomLink>
                 <CustomLink to="/animes">Anime</CustomLink>
                 <CustomLink to="/search">Search</CustomLink>
+                <CustomLink to="/favorites">Favorite</CustomLink>
             </header>
             <Container>
                 <Outlet />

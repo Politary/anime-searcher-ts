@@ -7,6 +7,7 @@ import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { Layout } from './modules/layout/components/Layout/Layout';
 import { TitlePage } from './pages/TitlePage/TitlePage';
 import { SearchPage } from './pages/SearchPage/SearchPage';
+import { FavoritesPage } from './pages/FavotitesPage/FavoritesPage';
 
 const routes = {
     path: '/',
@@ -34,6 +35,12 @@ const routes = {
             path: 'animes/:id/',
             // @ts-ignore
             element: <TitlePage />,
+        },
+        {
+            index: false,
+            path: 'favorites/',
+            // @ts-ignore
+            element: <FavoritesPage />,
         },
         {
             index: false,
