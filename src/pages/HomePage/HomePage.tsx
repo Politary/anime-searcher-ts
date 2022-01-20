@@ -30,4 +30,5 @@ export const HomePage = () => {
         );
     if (ongoings.status === 'loading' || 'idle') return <div>Loading</div>;
     if (ongoings.status === 'error') return <div>Something went wrong</div>;
+    else return null;
 };

@@ -77,4 +77,5 @@ export const AnimesPage = () => {
     if (titles.status === 'idle') return <div />;
     if (titles.status === 'loading') return <div>Loading</div>;
     if (titles.status === 'error') return <div>Something went wrong</div>;
+    else return null;
 };

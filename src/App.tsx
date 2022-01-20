@@ -16,13 +16,11 @@ const routes = {
         {
             index: true,
             path: '',
-            // @ts-ignore
             element: <HomePage />,
         },
         {
             index: false,
             path: 'animes',
-            // @ts-ignore
             element: <AnimesPage />,
         },
         {
@@ -33,13 +31,11 @@ const routes = {
         {
             index: false,
             path: 'animes/:id/',
-            // @ts-ignore
             element: <TitlePage />,
         },
         {
             index: false,
             path: 'favorites/',
-            // @ts-ignore
             element: <FavoritesPage />,
         },
         {
