@@ -35,8 +35,6 @@ function* getTitlesAction(action: PayloadAction<SearchOptions>) {
                     },
                 })
             );
-            console.log(searchParams);
-            console.log(titlesData.data.data);
             console.log('success');
             yield put(getTitlesSuccess(titlesData.data.data));
             yield put(getTitlesOptions(searchParams));
