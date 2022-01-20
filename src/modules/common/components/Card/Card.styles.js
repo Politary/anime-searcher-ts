@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const StyledCard = styled.div`
+    position: relative;
     flex-grow: 1;
     background-color: lightblue;
     margin: 1rem;
@@ -8,7 +9,6 @@ export const StyledCard = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-    position: relative;
     min-height: 200px;
     max-height: 200px;
     img {
