@@ -19,7 +19,7 @@ export const HomePage = () => {
 
     useEffect(() => {
         dispatch(getTitles(searchOptions));
-    }, [dispatch]);
+    }, []);
 
     if (ongoings.status === 'loaded')
         return (
