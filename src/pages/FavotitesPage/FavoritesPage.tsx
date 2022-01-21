@@ -1,33 +1,19 @@
 import { CustomButton } from '../../modules/common/components/CustomButton/CustomButton';
-import { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/root.reducer';
+import { clearFavorites } from '../../store/favorites/favorites.slice';
 
 export const FavoritesPage = () => {
-    const [keys, setKeys] = useState<string[]>([]);
+    const dispatch = useDispatch();
+    const favorites = useSelector((state: RootState) => state.favorites);
 
     const handleLog = () => {
-        console.log(keys);
         console.log(localStorage);
     };
 
     const handleClear = () => {
-        localStorage.clear();
-        console.log(localStorage);
+        dispatch(clearFavorites());
     };
-
-    const mapFavorites = useCallback(() => {
-        const keysArr = [];
-        for (let i = 0; i < localStorage.length; i++) {
-            console.log(localStorage.key(i));
-            //@ts-ignore
-            keysArr.push(localStorage.key(i));
-        }
-        //@ts-ignore
-        setKeys(keysArr);
-    }, []);
-
-    useEffect(() => {
-        mapFavorites();
-    }, []);
 
     return (
         <div>
@@ -37,8 +23,8 @@ export const FavoritesPage = () => {
                 Display state Keys
             </CustomButton>
             <ul>
-                {keys.map((item) => (
-                    <div key={item}>{item}</div>
+                {favorites.list.map((item: number) => (
+                    <li key={item}>{item}</li>
                 ))}
             </ul>
         </div>
