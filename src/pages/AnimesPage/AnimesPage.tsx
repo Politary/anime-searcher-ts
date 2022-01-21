@@ -6,6 +6,7 @@ import { CardRow } from '../../modules/common/components/CardRow/CardRow';
 import { CustomButton } from '../../modules/common/components/CustomButton/CustomButton';
 import { SearchOptions } from '../../types/types';
 import { OptionSelect } from '../../modules/common/components/OptionSelect/OptionSelect';
+import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
 
 export const AnimesPage = () => {
     const dispatch = useDispatch();
@@ -46,6 +47,14 @@ export const AnimesPage = () => {
         }));
     };
 
+    const handleChange = (e: React.FormEvent<EventTarget>): void => {
+        let target = e.target as HTMLInputElement;
+        setSearchOptions((prevState) => ({
+            ...prevState,
+            q: target.value.toString(),
+        }));
+    };
+
     const handleSearch = () => {
         dispatch(getTitles(searchOptions));
     };
@@ -68,6 +77,11 @@ export const AnimesPage = () => {
                         handleChange={handleSortChange}
                         value={searchOptions.sort}
                         items={sortItems}
+                    />
+                    <SearchBar
+                        value={searchOptions.q}
+                        handleChange={handleChange}
+                        handleSubmit={handleSearch}
                     />
                 </form>
                 <CustomButton handleSubmit={handleSearch}>Search</CustomButton>

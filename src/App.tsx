@@ -6,7 +6,6 @@ import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 
 import { Layout } from './modules/layout/components/Layout/Layout';
 import { TitlePage } from './pages/TitlePage/TitlePage';
-import { SearchPage } from './pages/SearchPage/SearchPage';
 import { FavoritesPage } from './pages/FavotitesPage/FavoritesPage';
 
 const routes = {
@@ -22,11 +21,6 @@ const routes = {
             index: false,
             path: 'animes',
             element: <AnimesPage />,
-        },
-        {
-            index: false,
-            path: 'search',
-            element: <SearchPage />,
         },
         {
             index: false,
