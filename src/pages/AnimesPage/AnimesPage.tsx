@@ -65,7 +65,7 @@ export const AnimesPage = () => {
 
     useEffect(() => {
         dispatch(getTitles(searchOptions));
-    }, [dispatch]);
+    }, [searchOptions]);
 
     if (titles.status === 'loaded')
         return (
@@ -91,7 +91,7 @@ export const AnimesPage = () => {
                 <CustomButton handleSubmit={handleSearch}>Search</CustomButton>
                 <CardRow titles={titles} wrapOption={true} />
                 <Pagination
-                    options={titles.options}
+                    options={searchOptions}
                     pagination={titles.pagination}
                     lastPage={lastPage}
                     setPage={setSearchOptions}

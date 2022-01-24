@@ -1,18 +1,34 @@
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getTitles } from '../../../../store/titles/titles.slice';
+
 export const Pagination: React.FC<any> = ({
     options,
     pagination,
     lastPage,
     setPage,
 }) => {
-    console.log(options.page);
-    console.log(pagination);
-    if (pagination)
-        return (
-            <div>
-                <button onClick={() => console.log(lastPage)}>{'<'}</button>
-                <span>{`${options.page}/${lastPage}`}</span>
-                <button onClick={() => console.log(options.page)}>{'>'}</button>
-            </div>
-        );
-    else return null;
+    const dispatch = useDispatch();
+
+    const goToPrevPage = () => {
+        setPage((prevState: any) => ({
+            ...prevState,
+            page: prevState.page - 1,
+        }));
+    };
+
+    const goToNextPage = async () => {
+        setPage((prevState: any) => ({
+            ...prevState,
+            page: prevState.page + 1,
+        }));
+    };
+
+    return (
+        <div>
+            <button onClick={goToPrevPage}>{'<'}</button>
+            <span>{`${options.page}/${lastPage}`}</span>
+            <button onClick={goToNextPage}>{'>'}</button>
+        </div>
+    );
 };
