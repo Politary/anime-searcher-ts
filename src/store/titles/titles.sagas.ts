@@ -6,7 +6,8 @@ import {
     getTitlesOptions,
     getTitlesFailure,
 } from './titles.slice';
-import { FetchList, SearchOptions } from '../../types/types';
+import { SearchOptions } from '../../types/types';
+import { FetchList } from '../../types/titleTypes';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { API } from '../../services/axios';
 import { store } from '../index';

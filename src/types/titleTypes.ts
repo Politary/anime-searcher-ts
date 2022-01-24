@@ -1,3 +1,31 @@
+export interface FetchList {
+    data: {
+        data: [];
+    };
+}
+
+export interface FetchTitles {
+    status: string;
+    list: TitleObject[];
+    options: {};
+}
+
+export interface FetchTitle {
+    status: string;
+    data: TitleObject;
+}
+
+export interface FetchObj {
+    config: {};
+    data: {
+        data: TitleObject;
+    };
+    headers: {};
+    request: {};
+    status: number;
+    statusText: string;
+}
+
 export interface TitleArray extends Array<TitleObject> {}
 
 export interface TitleObject {

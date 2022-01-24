@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AnimeDetails, FetchTitles, SearchOptions } from '../../types/types';
+import { AnimeDetails, SearchOptions } from '../../types/types';
+import { FetchTitles } from '../../types/titleTypes';
 import { TitleArray } from '../../types/titleTypes';
 
 const initialState: FetchTitles = {

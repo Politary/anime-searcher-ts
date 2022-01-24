@@ -1,5 +1,3 @@
-import { TitleObject } from './titleTypes';
-
 export interface AnimeDetails {
     mal_id: number;
     url: string;
@@ -15,38 +13,6 @@ export interface AnimeDetails {
     end_date: string | null;
     members: number;
     rate: string;
-}
-
-export interface AnimeDetailsArray extends Array<AnimeDetails> {}
-
-export interface TitleDetails {
-    request_hash: string;
-    request_cached: boolean;
-    request_cache_expiry: number;
-    mal_id: number;
-    url: string;
-    images: { jpg: { image_url: string } };
-    trailer_url: string;
-    title: string;
-    title_english: string;
-    title_japanese: string;
-    type: string;
-    source: string;
-    episodes: null;
-    status: string;
-    airing: boolean;
-    duration: string;
-    rating: string;
-    score: number;
-    scored_by: number;
-    rank: number;
-    popularity: number;
-    members: number;
-    favorites: number;
-    synopsis: string;
-    background: null;
-    premiered: string;
-    broadcast: string;
 }
 
 export interface SearchOptions {
@@ -75,32 +41,4 @@ export interface AppProps {
     value?: string | undefined;
     handleChange?: (e: React.FormEvent<EventTarget>) => void;
     handleSubmit?: () => void;
-}
-
-export interface FetchList {
-    data: {
-        data: [];
-    };
-}
-
-export interface FetchObj {
-    config: {};
-    data: {
-        data: TitleObject;
-    };
-    headers: {};
-    request: {};
-    status: number;
-    statusText: string;
-}
-
-export interface FetchTitles {
-    status: string;
-    list: AnimeDetails[];
-    options: {};
-}
-
-export interface FetchTitle {
-    status: string;
-    data: TitleObject;
 }

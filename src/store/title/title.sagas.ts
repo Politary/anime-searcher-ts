@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { getTitle, getTitleSuccess, getTitleFailure } from './title.slice';
-import { FetchObj } from '../../types/types';
+import { FetchObj } from '../../types/titleTypes';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { API } from '../../services/axios';
 

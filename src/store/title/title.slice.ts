@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TitleDetails } from '../../types/types';
 import { TitleObject } from '../../types/titleTypes';
 
 const initialState = {
