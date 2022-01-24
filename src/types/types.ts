@@ -18,7 +18,7 @@ export interface AnimeDetails {
 export interface SearchOptions {
     type: string;
     q?: string;
-    page?: number;
+    page: number;
     status?: string;
     rated?: string;
     genre?: string;

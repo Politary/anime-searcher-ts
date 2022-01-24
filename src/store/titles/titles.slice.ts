@@ -24,7 +24,6 @@ const titlesSlice = createSlice({
         },
         getTitlesReturn: (state) => {
             state.status = 'loaded';
-            (state.list as {}) = state.list;
         },
         getTitlesOptions: (
             state,
@@ -37,9 +36,10 @@ const titlesSlice = createSlice({
             console.log(action.payload);
         },
         clearTitles: (state) => {
-            (state.list as {}) = {};
+            state.list = [];
             state.status = 'idle';
             state.options = {};
+            state.pagination = {};
         },
     },
 });

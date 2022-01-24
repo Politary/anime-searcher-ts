@@ -15,6 +15,7 @@ export const HomePage = () => {
         order_by: 'score',
         sort: 'desc',
         limit: 6,
+        page: 1,
     };
 
     useEffect(() => {

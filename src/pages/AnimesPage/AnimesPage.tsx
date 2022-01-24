@@ -7,10 +7,14 @@ import { CustomButton } from '../../modules/common/components/CustomButton/Custo
 import { SearchOptions } from '../../types/types';
 import { OptionSelect } from '../../modules/common/components/OptionSelect/OptionSelect';
 import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
+import { Pagination } from '../../modules/common/components/Pagination/Pagination';
 
 export const AnimesPage = () => {
     const dispatch = useDispatch();
     const titles = useSelector((state: RootState) => state.titles);
+
+    //@ts-ignore
+    const lastPage = titles.pagination.last_visible_page;
 
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
         q: '',
@@ -86,6 +90,12 @@ export const AnimesPage = () => {
                 </form>
                 <CustomButton handleSubmit={handleSearch}>Search</CustomButton>
                 <CardRow titles={titles} wrapOption={true} />
+                <Pagination
+                    options={titles.options}
+                    pagination={titles.pagination}
+                    lastPage={lastPage}
+                    setPage={setSearchOptions}
+                />
             </div>
         );
     if (titles.status === 'idle') return <div />;
