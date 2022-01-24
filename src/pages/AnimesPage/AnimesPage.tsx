@@ -67,39 +67,44 @@ export const AnimesPage = () => {
         dispatch(getTitles(searchOptions));
     }, [searchOptions]);
 
-    if (titles.status === 'loaded')
-        return (
-            <div>
-                <h2>Anime</h2>
-                <form>
-                    <OptionSelect
-                        handleChange={handleOrderByChange}
-                        value={searchOptions.order_by}
-                        items={orderByItems}
-                    />
-                    <OptionSelect
-                        handleChange={handleSortChange}
-                        value={searchOptions.sort}
-                        items={sortItems}
-                    />
-                    <SearchBar
-                        value={searchOptions.q}
-                        handleChange={handleChange}
-                        handleSubmit={handleSearch}
-                    />
-                </form>
-                <CustomButton handleSubmit={handleSearch}>Search</CustomButton>
-                <CardRow titles={titles} wrapOption={true} />
+    let animeList;
+    if (titles.status === 'loaded') {
+        animeList = <CardRow titles={titles} wrapOption={true} />;
+    }
+    if (titles.status === 'idle') animeList = <div />;
+    if (titles.status === 'loading') animeList = <div>Loading</div>;
+    if (titles.status === 'error') animeList = <div>Something went wrong</div>;
+
+    return (
+        <div>
+            <h2>Anime</h2>
+            <form>
+                <OptionSelect
+                    handleChange={handleOrderByChange}
+                    value={searchOptions.order_by}
+                    items={orderByItems}
+                />
+                <OptionSelect
+                    handleChange={handleSortChange}
+                    value={searchOptions.sort}
+                    items={sortItems}
+                />
+                <SearchBar
+                    value={searchOptions.q}
+                    handleChange={handleChange}
+                    handleSubmit={handleSearch}
+                />
+            </form>
+            <CustomButton handleSubmit={handleSearch}>Search</CustomButton>
+            {animeList}
+            {titles.status === 'loaded' ? (
                 <Pagination
                     options={searchOptions}
                     pagination={titles.pagination}
                     lastPage={lastPage}
                     setPage={setSearchOptions}
                 />
-            </div>
-        );
-    if (titles.status === 'idle') return <div />;
-    if (titles.status === 'loading') return <div>Loading</div>;
-    if (titles.status === 'error') return <div>Something went wrong</div>;
-    else return null;
+            ) : null}
+        </div>
+    );
 };
