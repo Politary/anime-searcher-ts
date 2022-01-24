@@ -44,7 +44,7 @@ export interface TitleObject {
     title_synonyms: string[];
     type: string;
     source: string;
-    episodes?: any;
+    episodes?: number;
     status: string;
     airing: boolean;
     aired: TitleObjectAired;
@@ -57,7 +57,7 @@ export interface TitleObject {
     members: number;
     favorites: number;
     synopsis: string;
-    background?: any;
+    background?: string | null;
     season: string;
     year: number;
     broadcast: TitleObjectBroadcast;
@@ -102,9 +102,9 @@ export interface TitleObjectAiredPropFrom {
     year: number;
 }
 export interface TitleObjectAiredPropTo {
-    day?: any;
-    month?: any;
-    year?: any;
+    day?: string;
+    month?: string;
+    year?: string;
 }
 export interface TitleObjectAiredProp {
     from: TitleObjectAiredPropFrom;
@@ -112,7 +112,7 @@ export interface TitleObjectAiredProp {
 }
 export interface TitleObjectAired {
     from: string;
-    to?: any;
+    to?: string;
     prop: TitleObjectAiredProp;
     string: string;
 }

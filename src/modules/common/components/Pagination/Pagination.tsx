@@ -1,24 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { getTitles } from '../../../../store/titles/titles.slice';
+import { SearchOptions } from '../../../../types/types';
 
-export const Pagination: React.FC<any> = ({
-    options,
-    pagination,
-    lastPage,
-    setPage,
-}) => {
-    const dispatch = useDispatch();
-
+export const Pagination: React.FC<any> = ({ options, lastPage, setPage }) => {
     const goToPrevPage = () => {
-        setPage((prevState: any) => ({
+        setPage((prevState: SearchOptions) => ({
             ...prevState,
             page: prevState.page - 1,
         }));
     };
 
-    const goToNextPage = async () => {
-        setPage((prevState: any) => ({
+    const goToNextPage = () => {
+        setPage((prevState: SearchOptions) => ({
             ...prevState,
             page: prevState.page + 1,
         }));

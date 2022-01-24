@@ -100,7 +100,6 @@ export const AnimesPage = () => {
             {titles.status === 'loaded' ? (
                 <Pagination
                     options={searchOptions}
-                    pagination={titles.pagination}
                     lastPage={lastPage}
                     setPage={setSearchOptions}
                 />
