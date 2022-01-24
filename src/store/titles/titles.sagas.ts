@@ -37,7 +37,8 @@ function* getTitlesAction(action: PayloadAction<SearchOptions>) {
                 })
             );
             console.log('success');
-            yield put(getTitlesSuccess(titlesData.data.data));
+            console.log(titlesData);
+            yield put(getTitlesSuccess(titlesData.data));
             yield put(getTitlesOptions(searchParams));
         } else {
             console.log('duplicate request');

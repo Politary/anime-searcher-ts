@@ -1,12 +1,14 @@
 export interface FetchList {
     data: {
         data: [];
+        pagination: {};
     };
 }
 
 export interface FetchTitles {
     status: string;
     list: TitleObject[];
+    pagination: {};
     options: {};
 }
 
@@ -26,7 +28,11 @@ export interface FetchObj {
     statusText: string;
 }
 
-export interface TitleArray extends Array<TitleObject> {}
+// export interface TitleArray extends Array<TitleObject> {}
+export interface TitleArray {
+    data: TitleObject[];
+    pagination: {};
+}
 
 export interface TitleObject {
     mal_id: number;

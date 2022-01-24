@@ -6,6 +6,7 @@ import { TitleArray } from '../../types/titleTypes';
 const initialState: FetchTitles = {
     status: 'idle',
     list: [],
+    pagination: {},
     options: {},
 };
 
@@ -16,12 +17,10 @@ const titlesSlice = createSlice({
         getTitles: (state, action: PayloadAction<SearchOptions>) => {
             state.status = 'loading';
         },
-        getTitlesSuccess: (
-            state,
-            action: PayloadAction<Partial<TitleArray>>
-        ) => {
+        getTitlesSuccess: (state, action: PayloadAction<TitleArray>) => {
             state.status = 'loaded';
-            (state.list as {}) = action.payload;
+            state.list = action.payload.data;
+            state.pagination = action.payload.pagination;
         },
         getTitlesReturn: (state) => {
             state.status = 'loaded';
