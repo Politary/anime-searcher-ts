@@ -11,7 +11,7 @@ export interface TitleObject {
     title_synonyms: string[];
     type: string;
     source: string;
-    episodes: number;
+    episodes?: any;
     status: string;
     airing: boolean;
     aired: TitleObjectAired;
@@ -29,7 +29,7 @@ export interface TitleObject {
     year: number;
     broadcast: TitleObjectBroadcast;
     producers: TitleObjectProducers[];
-    licensors: TitleObjectLicensors[];
+    licensors: any[];
     studios: TitleObjectStudios[];
     genres: TitleObjectGenres[];
     explicit_genres: any[];
@@ -69,9 +69,9 @@ export interface TitleObjectAiredPropFrom {
     year: number;
 }
 export interface TitleObjectAiredPropTo {
-    day: number;
-    month: number;
-    year: number;
+    day?: any;
+    month?: any;
+    year?: any;
 }
 export interface TitleObjectAiredProp {
     from: TitleObjectAiredPropFrom;
@@ -79,7 +79,7 @@ export interface TitleObjectAiredProp {
 }
 export interface TitleObjectAired {
     from: string;
-    to: string;
+    to?: any;
     prop: TitleObjectAiredProp;
     string: string;
 }
@@ -90,12 +90,6 @@ export interface TitleObjectBroadcast {
     string: string;
 }
 export interface TitleObjectProducers {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-}
-export interface TitleObjectLicensors {
     mal_id: number;
     type: string;
     name: string;

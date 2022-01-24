@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TitleDetails } from '../../types/types';
+import { TitleObject } from '../../types/titleTypes';
 
 const initialState = {
     status: 'idle',
@@ -13,7 +14,7 @@ const titleSlice = createSlice({
         getTitle: (state, action) => {
             state.status = 'loading';
         },
-        getTitleSuccess: (state, action: PayloadAction<TitleDetails>) => {
+        getTitleSuccess: (state, action: PayloadAction<TitleObject>) => {
             state.status = 'loaded';
             (state.data as {}) = action.payload;
         },

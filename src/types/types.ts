@@ -1,3 +1,5 @@
+import { TitleObject } from './titleTypes';
+
 export interface AnimeDetails {
     mal_id: number;
     url: string;
@@ -84,7 +86,7 @@ export interface FetchList {
 export interface FetchObj {
     config: {};
     data: {
-        data: TitleDetails;
+        data: TitleObject;
     };
     headers: {};
     request: {};
@@ -100,5 +102,5 @@ export interface FetchTitles {
 
 export interface FetchTitle {
     status: string;
-    data: TitleDetails;
+    data: TitleObject;
 }

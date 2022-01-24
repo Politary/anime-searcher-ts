@@ -1,18 +1,17 @@
-import { TitleDetails } from '../../../../types/types';
 import { ImageContainer, InfoContainer, Section } from './TitleSection.styles';
+import { TitleObject } from '../../../../types/titleTypes';
 
-interface titleGrouped {
-    title: Partial<TitleDetails>;
-}
-
-export const TitleSection = ({ title }: titleGrouped) => {
+export const TitleSection: React.FC<Partial<TitleObject>> = ({
+    images,
+    synopsis,
+}) => {
     return (
         <Section>
             <ImageContainer>
-                <img src={`${title.images?.jpg.image_url}`} alt="titleImage" />
+                <img src={`${images?.jpg.image_url}`} alt="titleImage" />
             </ImageContainer>
             <InfoContainer>
-                <p>{title.synopsis}</p>
+                <p>{synopsis}</p>
             </InfoContainer>
         </Section>
     );
