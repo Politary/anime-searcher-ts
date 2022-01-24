@@ -5,12 +5,12 @@ import { AnimeDetails } from '../../../../types/types';
 //@ts-ignore
 import { ReactComponent as Star } from '../../../../assets/images/svg/star.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../store/root.reducer';
 import { addToFavorites } from '../../../../store/favorites/favorites.slice';
+import { TitleObject } from '../../../../types/titleTypes';
 
-export const Card: React.FC<Partial<AnimeDetails>> = ({
+export const Card: React.FC<Partial<TitleObject>> = ({
     title,
-    image_url,
+    images,
     mal_id,
 }) => {
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const Card: React.FC<Partial<AnimeDetails>> = ({
             </SvgContainer>
             <Link key={mal_id} to={`/animes/${mal_id}`}>
                 <ImageContainer>
-                    <img src={`${image_url}`} alt="titleImage" />
+                    <img src={`${images?.jpg.image_url}`} alt="titleImage" />
                 </ImageContainer>
                 <Title>{title}</Title>
             </Link>

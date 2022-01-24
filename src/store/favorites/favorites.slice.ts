@@ -6,7 +6,7 @@ const initialState: any = {
 };
 
 const favoritesSlice = createSlice({
-    name: 'titles',
+    name: 'favorites',
     initialState: initialState,
     reducers: {
         addToFavorites: (state, action: PayloadAction<any>) => {
