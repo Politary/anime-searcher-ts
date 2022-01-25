@@ -1,8 +1,19 @@
-import { ImageContainer, StyledCard, SvgContainer, Title } from './Card.styles';
+import {
+    Details,
+    Favorite,
+    ImageContainer,
+    Rating,
+    RatingText,
+    StyledCard,
+    SvgContainer,
+    Title,
+} from './Card.styles';
 import { Link } from 'react-router-dom';
 
 //@ts-ignore
-import { ReactComponent as Star } from '../../../../assets/images/svg/star.svg';
+import { ReactComponent as HeartOutlined } from '../../../../assets/images/svg/heart-outlined.svg';
+//@ts-ignore
+import { ReactComponent as StarFilled } from '../../../../assets/images/svg/star-filled.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     addToFavorites,
@@ -14,6 +25,9 @@ import { RootState } from '../../../../store/root.reducer';
 export const Card: React.FC<Partial<TitleObject>> = ({
     title,
     images,
+    score,
+    type,
+    duration,
     mal_id,
 }) => {
     const favorites = useSelector((state: RootState) => state.favorites);
@@ -26,14 +40,26 @@ export const Card: React.FC<Partial<TitleObject>> = ({
 
     return (
         <StyledCard>
-            <SvgContainer onClick={handleFavoritesChange}>
-                <Star width="30px" height="30px" z-index="100" />
-            </SvgContainer>
+            <Favorite>
+                <SvgContainer onClick={handleFavoritesChange}>
+                    <HeartOutlined
+                        fill="red"
+                        width="30px"
+                        height="30px"
+                        z-index="100"
+                    />
+                </SvgContainer>
+            </Favorite>
             <Link key={mal_id} to={`/animes/${mal_id}`}>
                 <ImageContainer>
                     <img src={`${images?.jpg.image_url}`} alt="titleImage" />
+                    <Rating>
+                        <StarFilled fill="#FFCA62" />
+                        <RatingText>{`${score?.toFixed(1)}/10`}</RatingText>
+                    </Rating>
                 </ImageContainer>
                 <Title>{title}</Title>
+                <Details>{`${type} • ${duration}`}</Details>
             </Link>
         </StyledCard>
     );

@@ -3,11 +3,11 @@ import { RootState } from '../../store/root.reducer';
 import React, { useEffect, useState } from 'react';
 import { getTitles } from '../../store/titles/titles.slice';
 import { CardRow } from '../../modules/common/components/CardRow/CardRow';
-import { CustomButton } from '../../modules/common/components/CustomButton/CustomButton';
 import { SearchOptions } from '../../types/types';
 import { OptionSelect } from '../../modules/common/components/OptionSelect/OptionSelect';
 import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
 import { Pagination } from '../../modules/common/components/Pagination/Pagination';
+import { SearchContainer, Tools } from './AnimePage.styles';
 
 export const AnimesPage = () => {
     const dispatch = useDispatch();
@@ -27,7 +27,9 @@ export const AnimesPage = () => {
     orderByItems.push(
         { name: 'Score', value: 'score' },
         { name: 'Title', value: 'title' },
-        { name: 'Rating', value: 'rating' }
+        { name: 'Popularity', value: 'popularity' },
+        { name: 'Start date', value: 'start_date' },
+        { name: 'End date', value: 'end_date' }
     );
     const sortItems = [];
     sortItems.push(
@@ -77,33 +79,37 @@ export const AnimesPage = () => {
 
     return (
         <div>
-            <h2>Anime</h2>
-            <form>
-                <OptionSelect
-                    handleChange={handleOrderByChange}
-                    value={searchOptions.order_by}
-                    items={orderByItems}
-                />
-                <OptionSelect
-                    handleChange={handleSortChange}
-                    value={searchOptions.sort}
-                    items={sortItems}
-                />
-                <SearchBar
-                    value={searchOptions.q}
-                    handleChange={handleChange}
-                    handleSubmit={handleSearch}
-                />
-            </form>
-            <CustomButton handleSubmit={handleSearch}>Search</CustomButton>
-            {animeList}
+            <SearchContainer>
+                <h2>Anime</h2>
+                <form>
+                    <SearchBar
+                        value={searchOptions.q}
+                        handleChange={handleChange}
+                        handleSubmit={handleSearch}
+                    />
+                    <OptionSelect
+                        handleChange={handleOrderByChange}
+                        value={searchOptions.order_by}
+                        items={orderByItems}
+                    />
+                    <OptionSelect
+                        handleChange={handleSortChange}
+                        value={searchOptions.sort}
+                        items={sortItems}
+                    />
+                </form>
+            </SearchContainer>
             {titles.status === 'loaded' ? (
-                <Pagination
-                    options={searchOptions}
-                    lastPage={lastPage}
-                    setPage={setSearchOptions}
-                />
+                <Tools>
+                    <span>{`${lastPage * 25} titles`}</span>
+                    <Pagination
+                        options={searchOptions}
+                        lastPage={lastPage}
+                        setPage={setSearchOptions}
+                    />
+                </Tools>
             ) : null}
+            {animeList}
         </div>
     );
 };

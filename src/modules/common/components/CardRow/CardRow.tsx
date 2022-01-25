@@ -15,7 +15,10 @@ export const CardRow: React.FC<OngoingsGrouped> = ({ titles, wrapOption }) => {
                       <Card
                           title={item.title!.toString()}
                           images={item.images}
+                          score={item.score}
                           key={item.mal_id}
+                          type={item.type}
+                          duration={item.duration}
                           mal_id={item.mal_id}
                       />
                   ))
