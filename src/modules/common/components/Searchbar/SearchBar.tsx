@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppProps } from '../../../../types/types';
+import { StyledSearchBar } from './SearchBar.styles';
 
 export const SearchBar: React.FC<AppProps> = ({
     value,
@@ -16,7 +17,7 @@ export const SearchBar: React.FC<AppProps> = ({
     };
 
     return (
-        <input
+        <StyledSearchBar
             type="text"
             onChange={handleChange}
             value={value}

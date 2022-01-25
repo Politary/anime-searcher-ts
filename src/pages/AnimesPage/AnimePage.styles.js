@@ -8,7 +8,8 @@ export const Tools = styled.div`
 
 export const SearchContainer = styled.div`
     display: flex;
-    align-items: baseline;
+    width: 100%;
+    align-items: center;
     justify-content: space-between;
     h2 {
         font-family: 'Be Vietnam Pro', sans-serif;
