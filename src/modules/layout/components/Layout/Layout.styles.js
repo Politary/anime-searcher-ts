@@ -7,3 +7,7 @@ export const Container = styled.div`
     margin-left: auto;
     margin-right: auto;
 `;
+
+export const Loading = styled.div`
+    width: 100%;
+`;

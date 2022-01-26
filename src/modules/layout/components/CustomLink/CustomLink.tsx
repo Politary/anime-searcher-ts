@@ -7,7 +7,7 @@ export const CustomLink: React.FC<AppProps> = ({ children, to, ...props }) => {
     return (
         <Link
             to={to as string}
-            style={{ color: match ? 'red' : 'black' }}
+            style={{ color: match ? '#D24C00' : '#616C7A' }}
             {...props}
         >
             {children}

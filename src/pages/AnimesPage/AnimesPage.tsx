@@ -8,6 +8,7 @@ import { OptionSelect } from '../../modules/common/components/OptionSelect/Optio
 import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
 import { Pagination } from '../../modules/common/components/Pagination/Pagination';
 import { SearchContainer, Tools } from './AnimePage.styles';
+import { Loading } from '../../modules/layout/components/Layout/Layout.styles';
 
 export const AnimesPage = () => {
     const dispatch = useDispatch();
@@ -73,8 +74,8 @@ export const AnimesPage = () => {
     if (titles.status === 'loaded') {
         animeList = <CardRow titles={titles} wrapOption={true} />;
     }
-    if (titles.status === 'idle') animeList = <div />;
-    if (titles.status === 'loading') animeList = <div>Loading</div>;
+    if (titles.status === 'idle') animeList = null;
+    if (titles.status === 'loading') animeList = <Loading>Loading</Loading>;
     if (titles.status === 'error') animeList = <div>Something went wrong</div>;
 
     return (
