@@ -9,6 +9,7 @@ import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
 import { Pagination } from '../../modules/common/components/Pagination/Pagination';
 import { SearchContainer, Tools } from './AnimePage.styles';
 import { Loading } from '../../modules/layout/components/Layout/Layout.styles';
+import { Select } from '../../modules/common/components/Select/Select';
 
 export const AnimesPage = () => {
     const dispatch = useDispatch();
@@ -46,11 +47,11 @@ export const AnimesPage = () => {
         }));
     };
 
-    const handleSortChange = (e: React.FormEvent<EventTarget>): void => {
-        let target = e.target as HTMLInputElement;
+    //@ts-ignore
+    const handleSortChange = (value): void => {
         setSearchOptions((prevState) => ({
             ...prevState,
-            sort: target.value,
+            sort: value,
         }));
     };
 
@@ -82,23 +83,21 @@ export const AnimesPage = () => {
         <div>
             <SearchContainer>
                 <h2>Anime</h2>
-                <form>
-                    <SearchBar
-                        value={searchOptions.q}
-                        handleChange={handleChange}
-                        handleSubmit={handleSearch}
-                    />
-                    <OptionSelect
-                        handleChange={handleOrderByChange}
-                        value={searchOptions.order_by}
-                        items={orderByItems}
-                    />
-                    <OptionSelect
-                        handleChange={handleSortChange}
-                        value={searchOptions.sort}
-                        items={sortItems}
-                    />
-                </form>
+                <SearchBar
+                    value={searchOptions.q}
+                    handleChange={handleChange}
+                    handleSubmit={handleSearch}
+                />
+                <OptionSelect
+                    handleChange={handleOrderByChange}
+                    value={searchOptions.order_by}
+                    items={orderByItems}
+                />
+                <Select
+                    handleChange={handleSortChange}
+                    value={searchOptions.sort}
+                    items={sortItems}
+                />
             </SearchContainer>
             {titles.status === 'loaded' ? (
                 <Tools>

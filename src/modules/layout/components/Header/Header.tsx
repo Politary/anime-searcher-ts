@@ -29,21 +29,34 @@ export const Header = () => {
     return (
         <header>
             <HeaderBody>
-                <div>
+                <CustomLink to={homeTo}>
                     <Logo />
-                </div>
+                </CustomLink>
                 <HeaderLinkContainer>
                     <HeaderLink>
-                        {homeMatch ? <HomeActive /> : <Home />}
-                        <CustomLink to={homeTo}>HOME</CustomLink>
+                        <CustomLink to={homeTo}>
+                            {homeMatch ? <HomeActive /> : <Home />}HOME
+                        </CustomLink>
                     </HeaderLink>
                     <HeaderLink>
-                        {animesMatch ? <PlayCircleActive /> : <PlayCircle />}
-                        <CustomLink to={animesTo}>ANIME</CustomLink>
+                        <CustomLink to={animesTo}>
+                            {animesMatch ? (
+                                <PlayCircleActive />
+                            ) : (
+                                <PlayCircle />
+                            )}
+                            ANIME
+                        </CustomLink>
                     </HeaderLink>
                     <HeaderLink>
-                        {favoritesMatch ? <HeartActive /> : <HeartOutlined />}
-                        <CustomLink to="/favorites">FAVORITE</CustomLink>
+                        <CustomLink to="/favorites">
+                            {favoritesMatch ? (
+                                <HeartActive />
+                            ) : (
+                                <HeartOutlined fill="#616C7A" />
+                            )}
+                            FAVORITE
+                        </CustomLink>
                     </HeaderLink>
                 </HeaderLinkContainer>
                 <a href="/">
