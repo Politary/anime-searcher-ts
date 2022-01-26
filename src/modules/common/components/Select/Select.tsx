@@ -31,7 +31,7 @@ export const Select: React.FC<OptionsSelect> = ({
             onFocus={expand}
             onBlur={collapse}
         >
-            <SelectHead value={value}>{value}</SelectHead>
+            <SelectHead>{selected}</SelectHead>
             {expanded
                 ? items.map((item) => (
                       <option
