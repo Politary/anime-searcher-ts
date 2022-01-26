@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useRef, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { OptionsSelect } from '../../../../types/types';
 import { SelectHead } from './Select.styles';
 
@@ -10,8 +10,6 @@ export const Select: React.FC<OptionsSelect> = ({
     const [expanded, setExpanded] = useState<boolean>(false);
     const [selected, setSelected] = useState(value);
 
-    const textInput = useRef(null);
-
     const expand = () => {
         setExpanded(true);
     };
@@ -21,10 +19,9 @@ export const Select: React.FC<OptionsSelect> = ({
     };
 
     const valueSubmit = (value: FormEvent): void => {
-        handleChange(value);
         collapse();
         setSelected(value as any);
-        console.log(this);
+        handleChange(value);
     };
 
     return (
@@ -41,7 +38,6 @@ export const Select: React.FC<OptionsSelect> = ({
                           value={item.value}
                           key={item.value}
                           onClick={() => valueSubmit(item.value as any)}
-                          ref={this}
                       >
                           {item.name}
                       </option>
