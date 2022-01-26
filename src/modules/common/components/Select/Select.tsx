@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useRef } from 'react';
 import { OptionsSelect } from '../../../../types/types';
 import { SelectHead } from './Select.styles';
 
@@ -7,8 +7,9 @@ export const Select: React.FC<OptionsSelect> = ({
     value,
     items,
 }) => {
+    const dropdownRef = useRef(null);
     const [expanded, setExpanded] = useState<boolean>(false);
-    const [selected, setSelected] = useState(value);
+    const [selected, setSelected] = useState<string>(value as string);
 
     const expand = () => {
         setExpanded(true);
@@ -22,6 +23,8 @@ export const Select: React.FC<OptionsSelect> = ({
         collapse();
         setSelected(value as any);
         handleChange(value);
+        //@ts-ignore
+        dropdownRef.current.blur();
     };
 
     return (
@@ -30,6 +33,7 @@ export const Select: React.FC<OptionsSelect> = ({
             tabIndex={0}
             onFocus={expand}
             onBlur={collapse}
+            ref={dropdownRef}
         >
             <SelectHead>{selected}</SelectHead>
             {expanded

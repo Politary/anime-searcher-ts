@@ -31,7 +31,7 @@ export interface SearchOptions {
 
 export interface OptionsSelect {
     handleChange: (e: React.FormEvent<EventTarget>) => void;
-    value: string | undefined;
+    value?: string;
     items: { name: string; value: string }[];
 }
 
