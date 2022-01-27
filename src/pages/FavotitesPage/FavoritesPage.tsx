@@ -8,7 +8,7 @@ export const FavoritesPage = () => {
     const favorites = useSelector((state: RootState) => state.favorites);
 
     const handleLog = () => {
-        console.log(localStorage);
+        console.log(favorites);
     };
 
     const handleClear = () => {
@@ -22,11 +22,11 @@ export const FavoritesPage = () => {
             <CustomButton handleSubmit={handleLog}>
                 Display state Keys
             </CustomButton>
-            <ul>
-                {favorites.list.map((item: number) => (
-                    <li key={item}>{item}</li>
-                ))}
-            </ul>
+            {/*<ul>*/}
+            {/*    {favorites.list.map((item: number) => (*/}
+            {/*        <li key={item}>{item}</li>*/}
+            {/*    ))}*/}
+            {/*</ul>*/}
         </div>
     );
 };

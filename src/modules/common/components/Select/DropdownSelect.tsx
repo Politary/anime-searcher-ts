@@ -4,6 +4,7 @@ import {
     DropdownBody,
     DropdownContainer,
     DropdownHead,
+    DropdownItem,
 } from './DropdownSelect.styles';
 
 function useOutsideCollapse(
@@ -79,13 +80,13 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
                 <DropdownBody ref={optionsRef} bodyPosition={bodyPosition}>
                     {expanded
                         ? items.map((item) => (
-                              <option
+                              <DropdownItem
                                   value={item.value}
                                   key={item.value}
                                   onClick={() => valueSubmit(item.value as any)}
                               >
                                   {item.name}
-                              </option>
+                              </DropdownItem>
                           ))
                         : null}
                 </DropdownBody>

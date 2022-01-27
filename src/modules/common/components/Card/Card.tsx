@@ -34,8 +34,9 @@ export const Card: React.FC<Partial<TitleObject>> = ({
     const dispatch = useDispatch();
 
     const handleFavoritesChange = () => {
-        if (!favorites.list.includes(mal_id)) dispatch(addToFavorites(mal_id));
-        else dispatch(removeFromFavorites(mal_id));
+        dispatch(
+            addToFavorites({ title, images, score, type, duration, mal_id })
+        );
     };
 
     return (
@@ -53,10 +54,12 @@ export const Card: React.FC<Partial<TitleObject>> = ({
             <Link key={mal_id} to={`/animes/${mal_id}`}>
                 <ImageContainer>
                     <img src={`${images?.jpg.image_url}`} alt="titleImage" />
-                    <Rating>
-                        <StarFilled fill="#FFCA62" />
-                        <RatingText>{`${score?.toFixed(1)}/10`}</RatingText>
-                    </Rating>
+                    {score ? (
+                        <Rating>
+                            <StarFilled fill="#FFCA62" />
+                            <RatingText>{`${score?.toFixed(1)}/10`}</RatingText>
+                        </Rating>
+                    ) : null}
                 </ImageContainer>
                 <Title>{title}</Title>
                 <Details>{`${type} • ${duration}`}</Details>

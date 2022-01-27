@@ -2,7 +2,6 @@ import styled from 'styled-components/macro';
 
 export const DropdownHead = styled.div`
     cursor: pointer;
-    color: #616c7a;
     font-size: 13px;
     font-weight: 600;
     width: 165px;
@@ -32,4 +31,9 @@ export const DropdownBody = styled.div`
 export const DropdownContainer = styled.div`
     font-family: 'Be Vietnam Pro', sans-serif;
     box-sizing: border-box;
+    color: #616c7a;
+`;
+
+export const DropdownItem = styled.option`
+    //font-family: 'Be Vietnam Pro', sans-serif;
 `;
