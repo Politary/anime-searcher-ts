@@ -2,6 +2,8 @@ import { CustomButton } from '../../modules/common/components/CustomButton/Custo
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/root.reducer';
 import { clearFavorites } from '../../store/favorites/favorites.slice';
+import { TitleObject } from '../../types/titleTypes';
+import { CardRow } from '../../modules/common/components/CardRow/CardRow';
 
 export const FavoritesPage = () => {
     const dispatch = useDispatch();
@@ -22,11 +24,7 @@ export const FavoritesPage = () => {
             <CustomButton handleSubmit={handleLog}>
                 Display state Keys
             </CustomButton>
-            {/*<ul>*/}
-            {/*    {favorites.list.map((item: number) => (*/}
-            {/*        <li key={item}>{item}</li>*/}
-            {/*    ))}*/}
-            {/*</ul>*/}
+            <CardRow titles={favorites} wrapOption={true} />
         </div>
     );
 };
