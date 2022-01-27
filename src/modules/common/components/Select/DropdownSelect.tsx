@@ -1,6 +1,10 @@
 import React, { FormEvent, useState, useEffect, useRef } from 'react';
 import { OptionsSelect } from '../../../../types/types';
-import { DropdownHead } from './Select.styles';
+import {
+    DropdownBody,
+    DropdownContainer,
+    DropdownHead,
+} from './DropdownSelect.styles';
 
 function useOutsideCollapse(
     headRef: React.RefObject<Element>,
@@ -59,11 +63,11 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
     };
 
     return (
-        <div className="dropdown">
+        <DropdownContainer className="dropdown">
             <DropdownHead onClick={expand} ref={dropdownRef}>
                 {activeName}
             </DropdownHead>
-            <div ref={optionsRef}>
+            <DropdownBody ref={optionsRef}>
                 {expanded
                     ? items.map((item) => (
                           <option
@@ -75,7 +79,7 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
                           </option>
                       ))
                     : null}
-            </div>
-        </div>
+            </DropdownBody>
+        </DropdownContainer>
     );
 };
