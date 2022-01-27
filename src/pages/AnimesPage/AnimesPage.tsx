@@ -9,7 +9,7 @@ import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
 import { Pagination } from '../../modules/common/components/Pagination/Pagination';
 import { SearchContainer, Tools } from './AnimePage.styles';
 import { Loading } from '../../modules/layout/components/Layout/Layout.styles';
-import { Select } from '../../modules/common/components/Select/Select';
+import { DropdownSelect } from '../../modules/common/components/Select/DropdownSelect';
 
 export const AnimesPage = () => {
     const dispatch = useDispatch();
@@ -93,7 +93,7 @@ export const AnimesPage = () => {
                     value={searchOptions.order_by}
                     items={orderByItems}
                 />
-                <Select
+                <DropdownSelect
                     handleChange={handleSortChange}
                     value={searchOptions.sort}
                     items={sortItems}
