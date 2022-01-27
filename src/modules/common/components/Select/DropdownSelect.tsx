@@ -1,22 +1,20 @@
-import { FormEvent, useState, useEffect, useRef } from 'react';
+import React, { FormEvent, useState, useEffect, useRef } from 'react';
 import { OptionsSelect } from '../../../../types/types';
 import { DropdownHead } from './Select.styles';
 
-//@ts-ignore
 function useOutsideCollapse(
     headRef: React.RefObject<Element>,
     optionsRef: React.RefObject<Element>,
-    //@ts-ignore
-    collapse
+    collapse: () => void
 ) {
     useEffect(() => {
-        //@ts-ignore
-        function handleClickOutside(event) {
+        function handleClickOutside(e: MouseEvent) {
+            let target = e.target as HTMLInputElement;
             if (
                 headRef.current &&
                 optionsRef.current &&
-                !headRef.current.contains(event.target) &&
-                !optionsRef.current.contains(event.target)
+                !headRef.current.contains(target) &&
+                !optionsRef.current.contains(target)
             ) {
                 collapse();
             }
