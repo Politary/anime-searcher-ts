@@ -48,29 +48,27 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
     const mountBody = (dropdownRef: React.RefObject<Element>) => {
         const position = dropdownRef.current?.getBoundingClientRect();
         setBodyPosition(position);
-        console.log(position);
     };
 
     const expand = () => {
         setExpanded(true);
         mountBody(dropdownRef);
-        console.log('expanded');
     };
 
     const collapse = () => {
         setExpanded(false);
-        console.log('collapsed');
     };
 
     useOutsideCollapse(dropdownRef, optionsRef, collapse);
 
     const valueSubmit = (value: string): void => {
         setSelected(value);
-        handleChange(value);
         collapse();
     };
 
-    useEffect(() => {}, [setBodyPosition]);
+    useEffect(() => {
+        handleChange(selected);
+    }, [selected]);
 
     return (
         <DropdownContainer className="dropdown">

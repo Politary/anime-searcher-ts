@@ -26,6 +26,10 @@ export const DropdownBody = styled.div`
         props.bodyPosition.left +
         -((200 - props.bodyPosition.width) / 2) +
         'px'};
+    box-sizing: border-box;
 `;
 
-export const DropdownContainer = styled.div``;
+export const DropdownContainer = styled.div`
+    font-family: 'Be Vietnam Pro', sans-serif;
+    box-sizing: border-box;
+`;
