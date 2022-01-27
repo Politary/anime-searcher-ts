@@ -3,7 +3,7 @@ import { OptionsSelect } from '../../../../types/types';
 import { DropdownHead } from './Select.styles';
 
 //@ts-ignore
-function useOutsideAlerter(
+function useOutsideCollapse(
     headRef: React.RefObject<Element>,
     optionsRef: React.RefObject<Element>,
     //@ts-ignore
@@ -38,17 +38,21 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
     const [expanded, setExpanded] = useState<boolean>(false);
     const [selected, setSelected] = useState<string>(value as string);
 
+    const activeName = items.filter((obj) => {
+        return obj.value === selected;
+    })[0].name;
+
     const expand = () => {
         setExpanded(true);
-        console.log('expand');
+        console.log('expanded');
     };
 
     const collapse = () => {
         setExpanded(false);
-        console.log('collapse');
+        console.log('collapsed');
     };
 
-    useOutsideAlerter(dropdownRef, optionsRef, collapse);
+    useOutsideCollapse(dropdownRef, optionsRef, collapse);
 
     const valueSubmit = (value: FormEvent): void => {
         setSelected(value as any);
@@ -59,7 +63,7 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
     return (
         <div className="dropdown">
             <DropdownHead onClick={expand} ref={dropdownRef}>
-                {selected}
+                {activeName}
             </DropdownHead>
             <div ref={optionsRef}>
                 {expanded
