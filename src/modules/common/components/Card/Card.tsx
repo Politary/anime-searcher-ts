@@ -46,7 +46,7 @@ export const Card: React.FC<Partial<TitleObject>> = ({
             <Favorite>
                 {
                     //@ts-ignore
-                    favorites.list.filter((item) => item.mal_id === mal_id)
+                    !favorites.list.filter((item) => item.mal_id === mal_id)
                         .length ? (
                         <SvgContainer onClick={handleAddToFavorites}>
                             <HeartOutlined
