@@ -39,13 +39,21 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
     const optionsRef = useRef(null);
     const [expanded, setExpanded] = useState<boolean>(false);
     const [selected, setSelected] = useState<string>(value as string);
+    const [bodyPosition, setBodyPosition] = useState<any>(null);
 
     const activeName = items.filter((obj) => {
         return obj.value === selected;
     })[0].name;
 
+    const mountBody = (dropdownRef: React.RefObject<Element>) => {
+        const position = dropdownRef.current?.getBoundingClientRect();
+        setBodyPosition(position);
+        console.log(position);
+    };
+
     const expand = () => {
         setExpanded(true);
+        mountBody(dropdownRef);
         console.log('expanded');
     };
 
@@ -56,30 +64,34 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
 
     useOutsideCollapse(dropdownRef, optionsRef, collapse);
 
-    const valueSubmit = (value: FormEvent): void => {
-        setSelected(value as any);
+    const valueSubmit = (value: string): void => {
+        setSelected(value);
         handleChange(value);
         collapse();
     };
+
+    useEffect(() => {}, [setBodyPosition]);
 
     return (
         <DropdownContainer className="dropdown">
             <DropdownHead onClick={expand} ref={dropdownRef}>
                 {activeName}
             </DropdownHead>
-            <DropdownBody ref={optionsRef}>
-                {expanded
-                    ? items.map((item) => (
-                          <option
-                              value={item.value}
-                              key={item.value}
-                              onClick={() => valueSubmit(item.value as any)}
-                          >
-                              {item.name}
-                          </option>
-                      ))
-                    : null}
-            </DropdownBody>
+            {expanded ? (
+                <DropdownBody ref={optionsRef} bodyPosition={bodyPosition}>
+                    {expanded
+                        ? items.map((item) => (
+                              <option
+                                  value={item.value}
+                                  key={item.value}
+                                  onClick={() => valueSubmit(item.value as any)}
+                              >
+                                  {item.name}
+                              </option>
+                          ))
+                        : null}
+                </DropdownBody>
+            ) : null}
         </DropdownContainer>
     );
 };

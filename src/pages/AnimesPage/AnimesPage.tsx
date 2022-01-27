@@ -39,16 +39,14 @@ export const AnimesPage = () => {
         { name: 'Ascending', value: 'asc' }
     );
 
-    const handleOrderByChange = (e: React.FormEvent<EventTarget>): void => {
-        let target = e.target as HTMLInputElement;
+    const handleOrderByChange = (value: string): void => {
         setSearchOptions((prevState) => ({
             ...prevState,
-            order_by: target.value,
+            order_by: value,
         }));
     };
 
-    //@ts-ignore
-    const handleSortChange = (value): void => {
+    const handleSortChange = (value: string): void => {
         setSearchOptions((prevState) => ({
             ...prevState,
             sort: value,
@@ -88,7 +86,7 @@ export const AnimesPage = () => {
                     handleChange={handleChange}
                     handleSubmit={handleSearch}
                 />
-                <OptionSelect
+                <DropdownSelect
                     handleChange={handleOrderByChange}
                     value={searchOptions.order_by}
                     items={orderByItems}
