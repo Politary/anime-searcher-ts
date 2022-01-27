@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 //@ts-ignore
 import { ReactComponent as HeartOutlined } from '../../../../assets/images/svg/heart-outlined.svg';
 //@ts-ignore
+import { ReactComponent as HeartActive } from '../../../../assets/images/svg/heart-active.svg';
+//@ts-ignore
 import { ReactComponent as StarFilled } from '../../../../assets/images/svg/star-filled.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -33,7 +35,7 @@ export const Card: React.FC<Partial<TitleObject>> = ({
     const favorites = useSelector((state: RootState) => state.favorites);
     const dispatch = useDispatch();
 
-    const handleFavoritesChange = () => {
+    const handleAddToFavorites = () => {
         dispatch(
             addToFavorites({ title, images, score, type, duration, mal_id })
         );
@@ -42,14 +44,29 @@ export const Card: React.FC<Partial<TitleObject>> = ({
     return (
         <StyledCard>
             <Favorite>
-                <SvgContainer onClick={handleFavoritesChange}>
-                    <HeartOutlined
-                        fill="red"
-                        width="30px"
-                        height="30px"
-                        z-index="100"
-                    />
-                </SvgContainer>
+                {
+                    //@ts-ignore
+                    favorites.list.filter((item) => item.mal_id === mal_id)
+                        .length ? (
+                        <SvgContainer onClick={handleAddToFavorites}>
+                            <HeartOutlined
+                                fill="red"
+                                width="30px"
+                                height="30px"
+                                z-index="100"
+                            />
+                        </SvgContainer>
+                    ) : (
+                        <SvgContainer>
+                            <HeartActive
+                                fill="red"
+                                width="30px"
+                                height="30px"
+                                z-index="100"
+                            />
+                        </SvgContainer>
+                    )
+                }
             </Favorite>
             <Link key={mal_id} to={`/animes/${mal_id}`}>
                 <ImageContainer>
