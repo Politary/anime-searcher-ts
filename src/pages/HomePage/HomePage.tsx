@@ -4,10 +4,13 @@ import { RootState } from '../../store/root.reducer';
 import React, { useEffect } from 'react';
 
 import { getTitles } from '../../store/titles/titles.slice';
+import { Hero } from '../../modules/home/components/Hero';
+import { getTitle } from '../../store/title/title.slice';
 
 export const HomePage = () => {
     const dispatch = useDispatch();
     const ongoings = useSelector((state: RootState) => state.titles);
+    const title = useSelector((state: RootState) => state.title);
 
     const searchOptions = {
         type: 'anime',
@@ -20,11 +23,13 @@ export const HomePage = () => {
 
     useEffect(() => {
         dispatch(getTitles(searchOptions));
+        dispatch(getTitle(ongoings.list[0].mal_id));
     }, []);
 
     if (ongoings.status === 'loaded')
         return (
             <div>
+                <Hero title={title} />
                 <h2>Ongoings</h2>
                 <CardRow titles={ongoings} wrapOption={false} />
             </div>

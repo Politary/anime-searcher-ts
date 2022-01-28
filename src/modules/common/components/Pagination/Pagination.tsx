@@ -38,7 +38,7 @@ export const Pagination: React.FC<any> = ({ options, lastPage, setPage }) => {
                 <ArrowLeft height="14px" width="14px" fill="#9098A2" />
             </PaginationButton>
             {expanded ? (
-                <input type="text" value={options.page}></input>
+                <input type="text" value={options.page} />
             ) : (
                 <PaginationText
                     onClick={toggleInput}
