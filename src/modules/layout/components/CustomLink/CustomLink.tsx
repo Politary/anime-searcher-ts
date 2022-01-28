@@ -10,6 +10,7 @@ export const CustomLink: React.FC<AppProps> = ({ children, to, ...props }) => {
             style={{
                 color: match ? '#D24C00' : '#616C7A',
                 display: 'flex',
+                background: 'transparent',
             }}
             {...props}
         >
