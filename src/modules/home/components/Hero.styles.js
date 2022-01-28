@@ -8,7 +8,9 @@ export const ImageContainer = styled.div`
     width: 100%;
     height: 640px;
     background-image: ${(props) =>
-        props.image ? `url(${props.image})` : 'none'};
+        props.image
+            ? `radial-gradient(53.59% 53.59% at 67.53% 62.42%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.76) 96.35%), url(${props.image})`
+            : 'none'};
     background-repeat: no-repeat;
     background-size: cover;
 `;
