@@ -38,6 +38,10 @@ export const DropdownContainer = styled.div`
 `;
 
 export const DropdownItem = styled.option`
-    //font-family: 'Be Vietnam Pro', sans-serif;
+    padding: 0.5rem 0.75rem;
     cursor: pointer;
+    color: ${(props) =>
+        props.activeValue === props.value ? '#D24C00' : 'inherit'};
+    background-color: ${(props) =>
+        props.activeValue === props.value ? '#FFF0E8' : 'transparent'};
 `;

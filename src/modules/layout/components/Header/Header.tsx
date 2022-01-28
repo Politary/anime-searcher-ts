@@ -1,5 +1,10 @@
 import { CustomLink } from '../CustomLink/CustomLink';
-import { HeaderBody, HeaderLink, HeaderLinkContainer } from './Header.styles';
+import {
+    HeaderBody,
+    HeaderLink,
+    HeaderLinkContainer,
+    HeaderText,
+} from './Header.styles';
 //@ts-ignore
 import { ReactComponent as Logo } from '../../../../assets/images/svg/Logo.svg';
 //@ts-ignore
@@ -35,7 +40,8 @@ export const Header = () => {
                 <HeaderLinkContainer>
                     <HeaderLink>
                         <CustomLink to={homeTo}>
-                            {homeMatch ? <HomeActive /> : <Home />}HOME
+                            {homeMatch ? <HomeActive /> : <Home />}
+                            <HeaderText>HOME</HeaderText>
                         </CustomLink>
                     </HeaderLink>
                     <HeaderLink>
@@ -45,7 +51,7 @@ export const Header = () => {
                             ) : (
                                 <PlayCircle />
                             )}
-                            ANIME
+                            <HeaderText>ANIME</HeaderText>
                         </CustomLink>
                     </HeaderLink>
                     <HeaderLink>
@@ -55,7 +61,7 @@ export const Header = () => {
                             ) : (
                                 <HeartOutlined fill="#616C7A" />
                             )}
-                            FAVORITE
+                            <HeaderText>FAVORITE</HeaderText>
                         </CustomLink>
                     </HeaderLink>
                 </HeaderLinkContainer>

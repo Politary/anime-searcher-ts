@@ -23,3 +23,7 @@ export const HeaderLink = styled.div`
     color: #616c7a;
     margin: 0 1.5rem;
 `;
+
+export const HeaderText = styled.span`
+    margin-left: 0.5rem;
+`;

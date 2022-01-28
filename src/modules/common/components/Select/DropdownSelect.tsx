@@ -86,6 +86,7 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
                     {expanded
                         ? items.map((item) => (
                               <DropdownItem
+                                  activeValue={value}
                                   value={item.value}
                                   key={item.value}
                                   onClick={() => valueSubmit(item.value as any)}
