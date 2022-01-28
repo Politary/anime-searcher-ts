@@ -9,3 +9,13 @@ export const PaginationButton = styled.button`
     background: transparent;
     color: #dddddd;
 `;
+
+export const PaginationText = styled.span`
+    font-size: 13px;
+`;
+
+export const PaginationContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;

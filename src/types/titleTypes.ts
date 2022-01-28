@@ -8,7 +8,10 @@ export interface FetchList {
 export interface FetchTitles {
     status: string;
     list: TitleObject[];
-    pagination: {};
+    pagination: {
+        last_visible_page?: number;
+        has_next_page?: boolean;
+    };
     options: {};
 }
 

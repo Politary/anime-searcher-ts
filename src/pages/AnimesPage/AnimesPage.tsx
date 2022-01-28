@@ -14,7 +14,6 @@ export const AnimesPage = () => {
     const dispatch = useDispatch();
     const titles = useSelector((state: RootState) => state.titles);
 
-    //@ts-ignore
     const lastPage = titles.pagination.last_visible_page;
 
     const [searchOptions, setSearchOptions] = useState<SearchOptions>({
@@ -96,7 +95,7 @@ export const AnimesPage = () => {
                     items={sortItems}
                 />
             </SearchContainer>
-            {titles.status === 'loaded' ? (
+            {titles.status === 'loaded' && lastPage ? (
                 <Tools>
                     <span>{`${lastPage * 25} titles`}</span>
                     <Pagination

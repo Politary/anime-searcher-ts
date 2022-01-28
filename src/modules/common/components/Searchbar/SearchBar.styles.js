@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 export const StyledSearchBar = styled.input`
     box-sizing: border-box;
     width: 595px;
-    height: 50px;
+    height: 52px;
     border: none;
     border-radius: 999rem;
     background-color: #eff0f2;

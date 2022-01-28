@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { OptionsSelect } from '../../../../types/types';
 import {
     DropdownBody,
@@ -6,7 +6,6 @@ import {
     DropdownHead,
     DropdownItem,
 } from './DropdownSelect.styles';
-//@ts-ignore
 import { ReactComponent as ChevronDown } from '../../../../assets/images/svg/chevron-down.svg';
 import { SvgContainer } from '../Card/Card.styles';
 

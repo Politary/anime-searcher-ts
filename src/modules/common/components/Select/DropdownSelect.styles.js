@@ -8,7 +8,7 @@ export const DropdownHead = styled.div`
     font-size: 13px;
     font-weight: 600;
     width: 165px;
-    padding: 1rem 1.5rem;
+    padding: 13px 1.5rem;
     border: 1px solid #dddddd;
     border-radius: 100rem;
     background-color: white;
