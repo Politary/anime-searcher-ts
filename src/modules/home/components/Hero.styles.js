@@ -1,12 +1,38 @@
 import styled from 'styled-components/macro';
 
-export const HeroContainer = styled.div`
+export const ImageContainer = styled.div`
+    position: absolute;
     left: 0;
+    right: 0;
+    top: 0;
     width: 100%;
     height: 640px;
-    margin-top: -120px;
     background-image: ${(props) =>
         props.image ? `url(${props.image})` : 'none'};
+    background-repeat: no-repeat;
+    background-size: cover;
+`;
+
+export const Container = styled.div`
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+`;
+
+export const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 15rem;
+    h3 {
+        color: white;
+        font-size: 64px;
+        font-weight: 700;
+        overflow-wrap: break-word;
+        line-height: 80.96px;
+        width: 620px;
+    }
 `;
 
 export const Tools = styled.div`

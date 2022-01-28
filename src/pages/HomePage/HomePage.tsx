@@ -6,6 +6,7 @@ import React, { useEffect } from 'react';
 import { getTitles } from '../../store/titles/titles.slice';
 import { Hero } from '../../modules/home/components/Hero';
 import { getTitle } from '../../store/title/title.slice';
+import { Container } from './HomePage.styles';
 
 export const HomePage = () => {
     const dispatch = useDispatch();
@@ -30,8 +31,10 @@ export const HomePage = () => {
         return (
             <div>
                 <Hero title={title} />
-                <h2>Ongoings</h2>
-                <CardRow titles={ongoings} wrapOption={false} />
+                <Container>
+                    <h2>Ongoings</h2>
+                    <CardRow titles={ongoings} wrapOption={false} />
+                </Container>
             </div>
         );
     if (ongoings.status === 'loading' || 'idle') return <div>Loading</div>;
