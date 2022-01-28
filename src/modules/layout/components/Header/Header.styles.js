@@ -1,5 +1,9 @@
 import styled from 'styled-components/macro';
 
+export const HeaderWrapper = styled.header`
+    z-index: 999;
+`;
+
 export const HeaderBody = styled.div`
     padding: 2.625rem 0;
     margin: 0 auto;

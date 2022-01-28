@@ -1,5 +1,6 @@
 import { CustomLink } from '../CustomLink/CustomLink';
 import {
+    HeaderWrapper,
     HeaderBody,
     HeaderLink,
     HeaderLinkContainer,
@@ -32,7 +33,7 @@ export const Header = () => {
     const favoritesMatch = useMatch(favoritesTo as string);
 
     return (
-        <header>
+        <HeaderWrapper>
             <HeaderBody>
                 <CustomLink to={homeTo}>
                     <Logo />
@@ -69,6 +70,6 @@ export const Header = () => {
                     <Search />
                 </a>
             </HeaderBody>
-        </header>
+        </HeaderWrapper>
     );
 };
