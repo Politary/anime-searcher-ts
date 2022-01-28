@@ -26,8 +26,10 @@ export const Container = styled.div`
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 15rem;
+    margin-top: 13rem;
     h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
         color: white;
         font-size: 64px;
         font-weight: 700;
@@ -37,9 +39,31 @@ export const Content = styled.div`
     }
 `;
 
+export const Details = styled.span`
+    font-family: Be Vietnam Pro, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #9098a2;
+`;
+
+export const StyledButton = styled.button`
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border-radius: 28px;
+    background-color: #d24c00;
+    color: white;
+    border: none;
+    font-family: Be Vietnam Pro, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+`;
+
 export const Tools = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-top: 3rem;
 `;

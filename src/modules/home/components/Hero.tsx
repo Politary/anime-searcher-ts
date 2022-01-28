@@ -1,4 +1,11 @@
-import { Container, Content, ImageContainer, Tools } from './Hero.styles';
+import {
+    Container,
+    Content,
+    Details,
+    ImageContainer,
+    StyledButton,
+    Tools,
+} from './Hero.styles';
 
 export const Hero: React.FC<any> = ({ title }) => {
     if (title.status === 'loaded')
@@ -9,13 +16,12 @@ export const Hero: React.FC<any> = ({ title }) => {
                     <Content>
                         <h3>{title.data.title}</h3>
                         <div>
-                            <span>{title.data.type}</span>
-                            <span>
-                                {title.data.duration}
-                                {title.data.type === 'TV' ? '/ep' : null}
-                            </span>
+                            <Details>
+                                {`${title.data.type} • ${title.data.duration} 
+                                ${title.data.type === 'TV' ? '/ep' : null}`}
+                            </Details>
                             <Tools>
-                                <button>Watch now</button>
+                                <StyledButton>Watch now</StyledButton>
                                 <div>***</div>
                                 <div> {'< >'} </div>
                             </Tools>
