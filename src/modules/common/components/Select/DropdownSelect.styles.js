@@ -1,6 +1,9 @@
 import styled from 'styled-components/macro';
 
 export const DropdownHead = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     cursor: pointer;
     font-size: 13px;
     font-weight: 600;
@@ -36,4 +39,5 @@ export const DropdownContainer = styled.div`
 
 export const DropdownItem = styled.option`
     //font-family: 'Be Vietnam Pro', sans-serif;
+    cursor: pointer;
 `;

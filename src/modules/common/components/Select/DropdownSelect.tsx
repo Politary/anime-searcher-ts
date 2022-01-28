@@ -6,6 +6,9 @@ import {
     DropdownHead,
     DropdownItem,
 } from './DropdownSelect.styles';
+//@ts-ignore
+import { ReactComponent as ChevronDown } from '../../../../assets/images/svg/chevron-down.svg';
+import { SvgContainer } from '../Card/Card.styles';
 
 function useOutsideCollapse(
     headRef: React.RefObject<Element>,
@@ -50,6 +53,10 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
         setBodyPosition(position);
     };
 
+    const toggle = () => {
+        expanded ? collapse() : expand();
+    };
+
     const expand = () => {
         setExpanded(true);
         mountBody(dropdownRef);
@@ -68,8 +75,11 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
 
     return (
         <DropdownContainer className="dropdown">
-            <DropdownHead onClick={expand} ref={dropdownRef}>
-                {activeName}
+            <DropdownHead onClick={toggle} ref={dropdownRef}>
+                <span>{activeName}</span>
+                <SvgContainer>
+                    <ChevronDown fill="#616C7A" />
+                </SvgContainer>
             </DropdownHead>
             {expanded ? (
                 <DropdownBody ref={optionsRef} bodyPosition={bodyPosition}>
