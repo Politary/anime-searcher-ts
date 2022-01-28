@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { getTitles } from '../../store/titles/titles.slice';
 import { CardRow } from '../../modules/common/components/CardRow/CardRow';
 import { SearchOptions } from '../../types/types';
-import { OptionSelect } from '../../modules/common/components/OptionSelect/OptionSelect';
 import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
 import { Pagination } from '../../modules/common/components/Pagination/Pagination';
 import { SearchContainer, Tools } from './AnimePage.styles';

@@ -50,9 +50,7 @@ export const Details = styled.div`
 `;
 
 export const SvgContainer = styled.div`
-    //position: absolute;
-    //right: 0;
-    //top: 0;
+    cursor: pointer;
 `;
 
 export const Favorite = styled.div`

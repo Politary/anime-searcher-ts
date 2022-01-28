@@ -39,11 +39,10 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
     const dropdownRef = useRef(null);
     const optionsRef = useRef(null);
     const [expanded, setExpanded] = useState<boolean>(false);
-    const [selected, setSelected] = useState<string>(value as string);
     const [bodyPosition, setBodyPosition] = useState<any>(null);
 
     const activeName = items.filter((obj) => {
-        return obj.value === selected;
+        return obj.value === value;
     })[0].name;
 
     const mountBody = (dropdownRef: React.RefObject<Element>) => {
@@ -63,13 +62,9 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
     useOutsideCollapse(dropdownRef, optionsRef, collapse);
 
     const valueSubmit = (value: string): void => {
-        setSelected(value);
+        handleChange(value);
         collapse();
     };
-
-    useEffect(() => {
-        handleChange(selected);
-    }, [selected]);
 
     return (
         <DropdownContainer className="dropdown">
