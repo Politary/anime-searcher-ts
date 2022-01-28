@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TitleObject } from '../../types/titleTypes';
 
 const initialState: any = {
     list: [],
@@ -12,9 +13,10 @@ const favoritesSlice = createSlice({
             state.list.push(action.payload);
         },
         removeFromFavorites: (state, action: PayloadAction<any>) => {
+            console.log(action.payload);
+            console.log(state.list);
             state.list = state.list.filter(
-                //@ts-ignore
-                (item) => item !== action.payload
+                (item: TitleObject) => item.mal_id !== action.payload.mal_id
             );
         },
         clearFavorites: (state) => {

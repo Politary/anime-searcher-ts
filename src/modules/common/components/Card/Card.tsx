@@ -35,38 +35,55 @@ export const Card: React.FC<Partial<TitleObject>> = ({
     const favorites = useSelector((state: RootState) => state.favorites);
     const dispatch = useDispatch();
 
-    const handleAddToFavorites = () => {
-        dispatch(
-            addToFavorites({ title, images, score, type, duration, mal_id })
-        );
+    const handleFavoritesChange = () => {
+        !favorites.list.filter((item: TitleObject) => item.mal_id === mal_id)
+            .length
+            ? dispatch(
+                  addToFavorites({
+                      title,
+                      images,
+                      score,
+                      type,
+                      duration,
+                      mal_id,
+                  })
+              )
+            : dispatch(
+                  removeFromFavorites({
+                      title,
+                      images,
+                      score,
+                      type,
+                      duration,
+                      mal_id,
+                  })
+              );
     };
 
     return (
         <StyledCard>
             <Favorite>
-                {
-                    //@ts-ignore
-                    !favorites.list.filter((item) => item.mal_id === mal_id)
-                        .length ? (
-                        <SvgContainer onClick={handleAddToFavorites}>
-                            <HeartOutlined
-                                fill="red"
-                                width="30px"
-                                height="30px"
-                                z-index="100"
-                            />
-                        </SvgContainer>
-                    ) : (
-                        <SvgContainer>
-                            <HeartActive
-                                fill="red"
-                                width="30px"
-                                height="30px"
-                                z-index="100"
-                            />
-                        </SvgContainer>
-                    )
-                }
+                {!favorites.list.filter(
+                    (item: TitleObject) => item.mal_id === mal_id
+                ).length ? (
+                    <SvgContainer onClick={handleFavoritesChange}>
+                        <HeartOutlined
+                            fill="red"
+                            width="30px"
+                            height="30px"
+                            z-index="100"
+                        />
+                    </SvgContainer>
+                ) : (
+                    <SvgContainer onClick={handleFavoritesChange}>
+                        <HeartActive
+                            fill="red"
+                            width="30px"
+                            height="30px"
+                            z-index="100"
+                        />
+                    </SvgContainer>
+                )}
             </Favorite>
             <Link key={mal_id} to={`/animes/${mal_id}`}>
                 <ImageContainer>
