@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 //@ts-ignore
 import { ReactComponent as HeartOutlined } from '../../../../assets/images/svg/heart-outlined.svg';
 //@ts-ignore
-import { ReactComponent as HeartActive } from '../../../../assets/images/svg/heart-active.svg';
+import { ReactComponent as HeartFilled } from '../../../../assets/images/svg/heart-filled.svg';
 //@ts-ignore
 import { ReactComponent as StarFilled } from '../../../../assets/images/svg/star-filled.svg';
 import { useDispatch, useSelector } from 'react-redux';
@@ -76,7 +76,7 @@ export const Card: React.FC<Partial<TitleObject>> = ({
                     </SvgContainer>
                 ) : (
                     <SvgContainer onClick={handleFavoritesChange}>
-                        <HeartActive
+                        <HeartFilled
                             fill="red"
                             width="30px"
                             height="30px"

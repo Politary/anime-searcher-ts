@@ -17,6 +17,9 @@ const titleSlice = createSlice({
             state.status = 'loaded';
             (state.data as {}) = action.payload;
         },
+        getTitleReturn: (state) => {
+            state.status = 'loaded';
+        },
         getTitleFailure: (state, action) => {
             state.status = 'error';
         },
@@ -24,5 +27,5 @@ const titleSlice = createSlice({
 });
 
 export default titleSlice.reducer;
-export const { getTitle, getTitleSuccess, getTitleFailure } =
+export const { getTitle, getTitleSuccess, getTitleReturn, getTitleFailure } =
     titleSlice.actions;
