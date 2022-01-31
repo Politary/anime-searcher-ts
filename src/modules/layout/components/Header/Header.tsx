@@ -36,7 +36,9 @@ export const Header = () => {
         <HeaderWrapper>
             <HeaderBody>
                 <CustomLink to={homeTo}>
-                    <Logo />
+                    <Logo
+                        {...(homeMatch ? { style: { fill: 'white' } } : null)}
+                    />
                 </CustomLink>
                 <HeaderLinkContainer>
                     <HeaderLink>
