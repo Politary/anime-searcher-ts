@@ -1,47 +1,48 @@
 import styled from 'styled-components/macro';
 
 export const StyledCard = styled.div`
+    font-family: Be Vietnam Pro, sans-serif;
+    font-weight: 600;
     position: relative;
     flex-grow: 1;
-    background-color: lightblue;
     margin: 1rem;
-    width: 150.156px;
+    width: 166px;
 `;
 
 export const ImageContainer = styled.div`
     position: relative;
-    min-height: 200px;
-    max-height: 200px;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(245, 246, 252, 0.52),
-        rgba(117, 19, 93, 0.73)
-    );
+    min-height: 234px;
+    max-height: 234px;
     img {
-        background: linear-gradient(
-            to bottom,
-            rgba(255, 0, 0, 0.5),
-            rgba(255, 0, 0, 0),
-            transparent
-        );
-        height: 200px;
+        height: 234px;
         min-height: 100%;
         max-height: 100%;
         min-width: 100%;
         max-width: 100%;
         object-fit: cover;
     }
+    background-position: center;
+    background-size: cover;
+    background-image: ${(props) =>
+        props.image
+            ? `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), url(${props.image})`
+            : 'none'};
 `;
 
 export const Title = styled.div`
+    font-size: 14px;
+    color: black;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 1;
     text-overflow: ellipsis;
+    margin-top: 0.5rem;
 `;
 
 export const Details = styled.div`
+    color: #616c7a;
+    font-size: 12px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -72,6 +73,7 @@ export const Rating = styled.div`
 `;
 
 export const RatingText = styled.span`
+    font-family: DM Sans, sans-serif;
     color: white;
     font-size: 14px;
     font-weight: 500;

@@ -86,12 +86,13 @@ export const Card: React.FC<Partial<TitleObject>> = ({
                 )}
             </Favorite>
             <Link key={mal_id} to={`/animes/${mal_id}`}>
-                <ImageContainer>
-                    <img src={`${images?.jpg.image_url}`} alt="titleImage" />
+                <ImageContainer image={images?.jpg.image_url}>
                     {score ? (
                         <Rating>
                             <StarFilled fill="#FFCA62" />
-                            <RatingText>{`${score?.toFixed(1)}/10`}</RatingText>
+                            <RatingText>{`${(0.5 * score).toFixed(
+                                1
+                            )}/5`}</RatingText>
                         </Rating>
                     ) : null}
                 </ImageContainer>
