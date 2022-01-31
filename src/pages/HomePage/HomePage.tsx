@@ -11,7 +11,6 @@ import { Container } from './HomePage.styles';
 export const HomePage = () => {
     const dispatch = useDispatch();
     const ongoings = useSelector((state: RootState) => state.titles);
-    const title = useSelector((state: RootState) => state.title);
 
     const searchOptions = {
         type: 'anime',
@@ -24,13 +23,12 @@ export const HomePage = () => {
 
     useEffect(() => {
         dispatch(getTitles(searchOptions));
-        dispatch(getTitle(ongoings.list[0].mal_id));
     }, []);
 
     if (ongoings.status === 'loaded')
         return (
             <div>
-                <Hero title={title} />
+                <Hero titles={ongoings} />
                 <Container>
                     <h2>Ongoings</h2>
                     <CardRow titles={ongoings} wrapOption={false} />

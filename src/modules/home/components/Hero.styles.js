@@ -28,6 +28,7 @@ export const Content = styled.div`
     flex-direction: column;
     margin-top: 13rem;
     h3 {
+        height: 240px;
         margin-top: 0;
         margin-bottom: 1rem;
         color: white;
@@ -66,4 +67,26 @@ export const Tools = styled.div`
     align-items: center;
     width: 100%;
     margin-top: 3rem;
+`;
+
+export const Dots = styled.div`
+    display: flex;
+    align-items: center;
+`;
+export const DotContainer = styled.div`
+    margin: 2px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+`;
+
+export const Arrows = styled.div`
+    display: flex;
+`;
+export const Arrow = styled.div`
+    cursor: pointer;
+    margin: 0.5rem;
 `;

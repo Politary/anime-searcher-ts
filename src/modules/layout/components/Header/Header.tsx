@@ -58,7 +58,7 @@ export const Header = () => {
                         </CustomLink>
                     </HeaderLink>
                     <HeaderLink>
-                        <CustomLink to="/favorites">
+                        <CustomLink to={favoritesTo}>
                             {favoritesMatch ? (
                                 <HeartActive />
                             ) : (
@@ -68,9 +68,13 @@ export const Header = () => {
                         </CustomLink>
                     </HeaderLink>
                 </HeaderLinkContainer>
-                <a href="/">
-                    <Search />
-                </a>
+                <CustomLink to={animesTo}>
+                    <Search
+                        {...(homeMatch
+                            ? { style: { fill: 'white' } }
+                            : { style: { fill: '#616C7A' } })}
+                    />
+                </CustomLink>
             </HeaderBody>
         </HeaderWrapper>
     );
