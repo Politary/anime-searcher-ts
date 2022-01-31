@@ -5,7 +5,6 @@ import React, { useEffect } from 'react';
 
 import { getTitles } from '../../store/titles/titles.slice';
 import { Hero } from '../../modules/home/components/Hero';
-import { getTitle } from '../../store/title/title.slice';
 import { Container } from './HomePage.styles';
 
 export const HomePage = () => {

@@ -19,6 +19,31 @@ import { useState } from 'react';
 
 export const Hero: React.FC<any> = ({ titles }) => {
     const [slide, setSlide] = useState<number>(0);
+    const count = 3;
+
+    const dotsMap = () => {
+        const dots = [];
+        for (let i = 0; i < count; i++) {
+            dots.push(
+                <DotContainer onClick={() => setSlide(i)} key={i}>
+                    <Dot
+                        {...(slide === i
+                            ? { style: { fill: '#D24C00' } }
+                            : {
+                                  style: {
+                                      fill: '#FFFFFF',
+                                      opacity: '50%',
+                                      width: '8px',
+                                      height: '8px',
+                                  },
+                              })}
+                    />
+                </DotContainer>
+            );
+        }
+        return dots;
+    };
+    const dots = dotsMap();
 
     const nextSlide = () => {
         if (slide < 2) setSlide(slide + 1);
@@ -28,9 +53,6 @@ export const Hero: React.FC<any> = ({ titles }) => {
         if (slide > 0) setSlide(slide - 1);
         else setSlide(2);
     };
-
-    console.log(slide);
-    console.log(titles.list[slide]);
 
     if (titles.status === 'loaded')
         return (
@@ -58,27 +80,7 @@ export const Hero: React.FC<any> = ({ titles }) => {
                                 >
                                     <StyledButton>Watch now</StyledButton>
                                 </Link>
-                                <Dots>
-                                    <DotContainer>
-                                        <Dot fill="#D24C00" />
-                                    </DotContainer>
-                                    <DotContainer>
-                                        <Dot
-                                            fill="#FFFFFF"
-                                            width="8px"
-                                            height="8px"
-                                            opacity="50%"
-                                        />
-                                    </DotContainer>
-                                    <DotContainer>
-                                        <Dot
-                                            fill="#FFFFFF"
-                                            width="8px"
-                                            height="8px"
-                                            opacity="50%"
-                                        />
-                                    </DotContainer>
-                                </Dots>
+                                <Dots>{dots.map((item) => item)}</Dots>
                                 <Arrows>
                                     <Arrow onClick={prevSlide}>
                                         <Left />

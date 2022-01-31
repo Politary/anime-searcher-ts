@@ -17,7 +17,7 @@ export const ImageContainer = styled.div`
 
 export const Container = styled.div`
     flex: 1;
-    max-width: 1200px;
+    max-width: 1146px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
