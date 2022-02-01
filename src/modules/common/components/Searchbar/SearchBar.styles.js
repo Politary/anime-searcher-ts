@@ -15,4 +15,9 @@ export const StyledSearchBar = styled.input`
         border: none;
         outline: none;
     }
+    ::placeholder {
+        font-family: Be Vietnam Pro, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+    }
 `;

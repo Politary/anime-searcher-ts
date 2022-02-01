@@ -3,6 +3,7 @@ import { TitleObject } from '../../types/titleTypes';
 
 const initialState: any = {
     list: [],
+    filteredList: [],
 };
 
 const favoritesSlice = createSlice({
@@ -19,6 +20,16 @@ const favoritesSlice = createSlice({
                 (item: TitleObject) => item.mal_id !== action.payload.mal_id
             );
         },
+        filterFavorites: (state, action: PayloadAction<any>) => {
+            console.log(action.payload);
+            state.filteredList = state.list.filter(
+                //@ts-ignore
+                (task) =>
+                    task.title
+                        .toLowerCase()
+                        .includes(action.payload.q.toLowerCase())
+            );
+        },
         clearFavorites: (state) => {
             state.list = [];
         },
@@ -26,5 +37,9 @@ const favoritesSlice = createSlice({
 });
 
 export default favoritesSlice.reducer;
-export const { addToFavorites, removeFromFavorites, clearFavorites } =
-    favoritesSlice.actions;
+export const {
+    addToFavorites,
+    removeFromFavorites,
+    filterFavorites,
+    clearFavorites,
+} = favoritesSlice.actions;

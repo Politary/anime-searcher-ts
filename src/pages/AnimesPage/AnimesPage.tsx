@@ -81,6 +81,7 @@ export const AnimesPage = () => {
                 <h2>Anime</h2>
                 <SearchBar
                     value={searchOptions.q}
+                    placeholder='Search by Name, Author, Company'
                     handleChange={handleChange}
                     handleSubmit={handleSearch}
                 />
@@ -106,6 +107,16 @@ export const AnimesPage = () => {
                 </Tools>
             ) : null}
             {animeList}
+            {titles.status === 'loaded' && lastPage ? (
+                <Tools>
+                    <span>{`${lastPage * 25} titles`}</span>
+                    <Pagination
+                        options={searchOptions}
+                        lastPage={lastPage}
+                        setPage={setSearchOptions}
+                    />
+                </Tools>
+            ) : null}
         </div>
     );
 };

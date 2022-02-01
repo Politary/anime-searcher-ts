@@ -4,6 +4,7 @@ import { StyledSearchBar } from './SearchBar.styles';
 
 export const SearchBar: React.FC<AppProps> = ({
     value,
+    placeholder,
     handleChange,
     handleSubmit,
 }) => {
@@ -19,6 +20,7 @@ export const SearchBar: React.FC<AppProps> = ({
     return (
         <StyledSearchBar
             type="text"
+            placeholder={placeholder}
             onChange={handleChange}
             value={value}
             onKeyDown={handleInputSubmit}

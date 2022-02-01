@@ -37,6 +37,7 @@ export interface OptionsSelect {
 
 export interface AppProps {
     to?: string;
+    placeholder?: string
     wrapOption?: boolean;
     value?: string | undefined;
     handleChange?: (e: React.FormEvent<EventTarget>) => void;
