@@ -5,24 +5,21 @@ import {
     filterFavorites,
     clearFavorites,
 } from '../../store/favorites/favorites.slice';
+
 import { CardRow } from '../../modules/common/components/CardRow/CardRow';
 import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
 import { DropdownSelect } from '../../modules/common/components/Select/DropdownSelect';
-import { SearchContainer } from '../AnimesPage/AnimePage.styles';
+import { SearchContainer, Tools } from '../AnimesPage/AnimePage.styles';
 import React, { useEffect, useState } from 'react';
 import { SearchOptions } from '../../types/types';
-import { getTitles } from '../../store/titles/titles.slice';
 
 export const FavoritesPage = () => {
     const dispatch = useDispatch();
     const favorites = useSelector((state: RootState) => state.favorites);
 
-    const [searchOptions, setSearchOptions] = useState<SearchOptions>({
+    const [searchOptions, setSearchOptions] = useState<Partial<SearchOptions>>({
         q: '',
-        type: 'anime',
         order_by: 'score',
-        sort: 'desc',
-        page: 1,
     });
     const orderByItems = [];
     orderByItems.push(
@@ -32,23 +29,11 @@ export const FavoritesPage = () => {
         { name: 'Start date', value: 'start_date' },
         { name: 'End date', value: 'end_date' }
     );
-    const sortItems = [];
-    sortItems.push(
-        { name: 'Descending', value: 'desc' },
-        { name: 'Ascending', value: 'asc' }
-    );
 
     const handleOrderByChange = (value: string): void => {
         setSearchOptions((prevState) => ({
             ...prevState,
             order_by: value,
-        }));
-    };
-
-    const handleSortChange = (value: string): void => {
-        setSearchOptions((prevState) => ({
-            ...prevState,
-            sort: value,
         }));
     };
 
@@ -75,10 +60,10 @@ export const FavoritesPage = () => {
     return (
         <div>
             <SearchContainer>
-                <h2>Favorites</h2>
+                <h3>Favorites</h3>
                 <SearchBar
                     value={searchOptions.q}
-                    placeholder="Search by Name, Author, Company"
+                    placeholder="Filter by Name"
                     handleChange={handleChange}
                     handleSubmit={handleSearch}
                 />
@@ -87,14 +72,13 @@ export const FavoritesPage = () => {
                     value={searchOptions.order_by}
                     items={orderByItems}
                 />
-                <DropdownSelect
-                    handleChange={handleSortChange}
-                    value={searchOptions.sort}
-                    items={sortItems}
-                />
             </SearchContainer>
-            <CustomButton handleSubmit={handleClear}>Clear</CustomButton>
-            <CardRow titles={favorites} wrapOption={true} />
+            <Tools>
+                <span>{`${favorites.filteredList.length} titles`}</span>
+                <div />
+            </Tools>
+            {/*<CustomButton handleSubmit={handleClear}>Clear</CustomButton>*/}
+            <CardRow list={favorites.filteredList} wrapOption={true} />
         </div>
     );
 };

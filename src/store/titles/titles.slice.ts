@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AnimeDetails, SearchOptions } from '../../types/types';
-import { FetchTitles } from '../../types/titleTypes';
+import { SearchOptions } from '../../types/types';
+import { FetchTitles, TitleObject } from '../../types/titleTypes';
 import { TitleArray } from '../../types/titleTypes';
 
 const initialState: FetchTitles = {
@@ -14,7 +14,7 @@ const titlesSlice = createSlice({
     name: 'titles',
     initialState: initialState,
     reducers: {
-        getTitles: (state, action: PayloadAction<SearchOptions>) => {
+        getTitles: (state, action: PayloadAction<Partial<SearchOptions>>) => {
             state.status = 'loading';
         },
         getTitlesSuccess: (state, action: PayloadAction<TitleArray>) => {
@@ -27,7 +27,7 @@ const titlesSlice = createSlice({
         },
         getTitlesOptions: (
             state,
-            action: PayloadAction<Partial<AnimeDetails>>
+            action: PayloadAction<Partial<TitleObject>>
         ) => {
             state.options = action.payload;
         },

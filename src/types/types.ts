@@ -1,23 +1,6 @@
-export interface AnimeDetails {
-    mal_id: number;
-    url: string;
-    images: { jpg: { image_url: string } };
-    image_url: string;
-    title: string | undefined;
-    airing: boolean;
-    synopsis: string;
-    type: string;
-    episodes: number;
-    score: number;
-    start_date: string | null;
-    end_date: string | null;
-    members: number;
-    rate: string;
-}
-
 export interface SearchOptions {
     type: string;
-    q?: string;
+    q: string;
     page: number;
     status?: string;
     rated?: string;
@@ -37,7 +20,7 @@ export interface OptionsSelect {
 
 export interface AppProps {
     to?: string;
-    placeholder?: string
+    placeholder?: string;
     wrapOption?: boolean;
     value?: string | undefined;
     handleChange?: (e: React.FormEvent<EventTarget>) => void;

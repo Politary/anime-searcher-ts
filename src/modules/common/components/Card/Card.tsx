@@ -10,21 +10,18 @@ import {
 } from './Card.styles';
 import { Link } from 'react-router-dom';
 
-//@ts-ignore
 import { ReactComponent as HeartOutlined } from '../../../../assets/images/svg/heart-outlined.svg';
-//@ts-ignore
 import { ReactComponent as HeartFilled } from '../../../../assets/images/svg/heart-filled.svg';
-//@ts-ignore
 import { ReactComponent as StarFilled } from '../../../../assets/images/svg/star-filled.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     addToFavorites,
     removeFromFavorites,
 } from '../../../../store/favorites/favorites.slice';
-import { TitleObject } from '../../../../types/titleTypes';
+import { TitleObject, TitleObjectMin } from '../../../../types/titleTypes';
 import { RootState } from '../../../../store/root.reducer';
 
-export const Card: React.FC<Partial<TitleObject>> = ({
+export const Card: React.FC<TitleObjectMin> = ({
     title,
     images,
     score,
@@ -36,7 +33,7 @@ export const Card: React.FC<Partial<TitleObject>> = ({
     const dispatch = useDispatch();
 
     const handleFavoritesChange = () => {
-        !favorites.list.filter((item: TitleObject) => item.mal_id === mal_id)
+        !favorites.list.filter((item: TitleObjectMin) => item.mal_id === mal_id)
             .length
             ? dispatch(
                   addToFavorites({
@@ -64,7 +61,7 @@ export const Card: React.FC<Partial<TitleObject>> = ({
         <StyledCard>
             <Favorite>
                 {!favorites.list.filter(
-                    (item: TitleObject) => item.mal_id === mal_id
+                    (item: TitleObjectMin) => item.mal_id === mal_id
                 ).length ? (
                     <SvgContainer onClick={handleFavoritesChange}>
                         <HeartOutlined

@@ -48,7 +48,7 @@ export const SearchPage = () => {
 
             {(() => {
                 if (titles.status === 'loaded') {
-                    return <CardRow titles={titles} />;
+                    return <CardRow list={titles.list} />;
                 }
                 if (titles.status === 'idle') {
                     return <div />;

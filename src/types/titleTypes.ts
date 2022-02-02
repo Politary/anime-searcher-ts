@@ -15,11 +15,6 @@ export interface FetchTitles {
     options: {};
 }
 
-export interface FetchTitle {
-    status: string;
-    data: TitleObject;
-}
-
 export interface FetchObj {
     config: {};
     data: {
@@ -35,6 +30,11 @@ export interface TitleArray {
     data: TitleObject[];
     pagination: {};
 }
+
+export type TitleObjectMin = Pick<
+    TitleObject,
+    'title' | 'images' | 'score' | 'type' | 'duration' | 'mal_id'
+>;
 
 export interface TitleObject {
     mal_id: number;

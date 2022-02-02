@@ -1,17 +1,17 @@
 import { Card } from '../Card/Card';
 import { Grid } from './CardRow.styles';
 import { AppProps } from '../../../../types/types';
-import { FetchTitles } from '../../../../types/titleTypes';
+import { TitleObject, TitleObjectMin } from '../../../../types/titleTypes';
 
 interface OngoingsGrouped extends AppProps {
-    titles: FetchTitles;
+    list: TitleObjectMin[];
 }
 
-export const CardRow: React.FC<OngoingsGrouped> = ({ titles, wrapOption }) => {
+export const CardRow: React.FC<OngoingsGrouped> = ({ list, wrapOption }) => {
     return (
         <Grid wrapOption={wrapOption}>
-            {titles.list.length
-                ? titles.list.map((item) => (
+            {list.length
+                ? list.map((item) => (
                       <Card
                           title={item.title!.toString()}
                           images={item.images}

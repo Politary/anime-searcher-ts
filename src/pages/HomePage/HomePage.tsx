@@ -30,7 +30,7 @@ export const HomePage = () => {
                 <Hero titles={ongoings} />
                 <Container>
                     <h2>Ongoings</h2>
-                    <CardRow titles={ongoings} wrapOption={false} />
+                    <CardRow list={ongoings.list} wrapOption={false} />
                 </Container>
             </div>
         );

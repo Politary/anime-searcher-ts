@@ -69,10 +69,10 @@ export const AnimesPage = () => {
 
     let animeList;
     if (titles.status === 'loaded') {
-        animeList = <CardRow titles={titles} wrapOption={true} />;
+        animeList = <CardRow list={titles.list} wrapOption={true} />;
     }
     if (titles.status === 'idle') animeList = null;
-    if (titles.status === 'loading') animeList = <Loading>Loading</Loading>;
+    if (titles.status === 'loading') animeList = <Loading>Loading...</Loading>;
     if (titles.status === 'error') animeList = <div>Something went wrong</div>;
 
     return (
@@ -81,7 +81,7 @@ export const AnimesPage = () => {
                 <h2>Anime</h2>
                 <SearchBar
                     value={searchOptions.q}
-                    placeholder='Search by Name, Author, Company'
+                    placeholder="Search by Name, Author, Company"
                     handleChange={handleChange}
                     handleSubmit={handleSearch}
                 />
@@ -98,7 +98,9 @@ export const AnimesPage = () => {
             </SearchContainer>
             {titles.status === 'loaded' && lastPage ? (
                 <Tools>
-                    <span>{`${lastPage * 25} titles`}</span>
+                    <span>{`${
+                        (lastPage - 1) * 25 + titles.list.length
+                    } titles`}</span>
                     <Pagination
                         options={searchOptions}
                         lastPage={lastPage}
@@ -109,7 +111,9 @@ export const AnimesPage = () => {
             {animeList}
             {titles.status === 'loaded' && lastPage ? (
                 <Tools>
-                    <span>{`${lastPage * 25} titles`}</span>
+                    <span>{`${
+                        (lastPage - 1) * 25 + titles.list.length
+                    } titles`}</span>
                     <Pagination
                         options={searchOptions}
                         lastPage={lastPage}
