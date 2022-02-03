@@ -7,11 +7,19 @@ import { SearchOptions } from '../../types/types';
 export interface Favorites {
     list: TitleObjectMin[];
     filteredList: TitleObjectMin[];
+    options: {
+        q: string;
+        order_by: string;
+    };
 }
 
 const initialState: Favorites = {
     list: [],
     filteredList: [],
+    options: {
+        q: '',
+        order_by: 'score',
+    },
 };
 
 const favoritesSlice = createSlice({
@@ -49,6 +57,15 @@ const favoritesSlice = createSlice({
         clearFavorites: (state) => {
             state.list = [];
         },
+        setSearchOptions: (state, action: PayloadAction<any>) => {
+            console.log('123');
+        },
+        setSearchQuery: (state, action) => {
+            state.options.q = action.payload;
+        },
+        setSearchOrder: (state, action) => {
+            state.options.order_by = action.payload;
+        },
     },
 });
 
@@ -58,4 +75,7 @@ export const {
     removeFromFavorites,
     filterFavorites,
     clearFavorites,
+    setSearchOptions,
+    setSearchOrder,
+    setSearchQuery,
 } = favoritesSlice.actions;

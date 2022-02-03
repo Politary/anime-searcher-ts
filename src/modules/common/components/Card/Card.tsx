@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     addToFavorites,
     removeFromFavorites,
+    filterFavorites,
 } from '../../../../store/favorites/favorites.slice';
 import { TitleObject, TitleObjectMin } from '../../../../types/titleTypes';
 import { RootState } from '../../../../store/root.reducer';
@@ -55,6 +56,7 @@ export const Card: React.FC<TitleObjectMin> = ({
                       mal_id,
                   })
               );
+        dispatch(filterFavorites(favorites.options));
     };
 
     return (

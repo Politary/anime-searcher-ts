@@ -6,7 +6,7 @@ import { CardRow } from '../../modules/common/components/CardRow/CardRow';
 import { SearchOptions } from '../../types/types';
 import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
 import { Pagination } from '../../modules/common/components/Pagination/Pagination';
-import { SearchContainer, Tools } from './AnimePage.styles';
+import { SearchContainer, SearchTools, Tools } from './AnimePage.styles';
 import { Loading } from '../../modules/layout/components/Layout/Layout.styles';
 import { DropdownSelect } from '../../modules/common/components/Select/DropdownSelect';
 
@@ -79,22 +79,19 @@ export const AnimesPage = () => {
         <div>
             <SearchContainer>
                 <h2>Anime</h2>
-                <SearchBar
-                    value={searchOptions.q}
-                    placeholder="Search by Name, Author, Company"
-                    handleChange={handleChange}
-                    handleSubmit={handleSearch}
-                />
-                <DropdownSelect
-                    handleChange={handleOrderByChange}
-                    value={searchOptions.order_by}
-                    items={orderByItems}
-                />
-                <DropdownSelect
-                    handleChange={handleSortChange}
-                    value={searchOptions.sort}
-                    items={sortItems}
-                />
+                <SearchTools>
+                    <SearchBar
+                        value={searchOptions.q}
+                        placeholder="Search by Name, Author, Company"
+                        handleChange={handleChange}
+                        handleSubmit={handleSearch}
+                    />
+                    <DropdownSelect
+                        handleChange={handleOrderByChange}
+                        value={searchOptions.order_by}
+                        items={orderByItems}
+                    />
+                </SearchTools>
             </SearchContainer>
             {titles.status === 'loaded' && lastPage ? (
                 <Tools>
@@ -109,6 +106,7 @@ export const AnimesPage = () => {
                 </Tools>
             ) : null}
             {animeList}
+            <button onClick={() => localStorage.clear()}>123</button>
             {titles.status === 'loaded' && lastPage ? (
                 <Tools>
                     <span>{`${

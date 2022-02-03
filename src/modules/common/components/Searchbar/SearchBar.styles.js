@@ -9,6 +9,7 @@ export const StyledSearchBar = styled.input`
     background-color: #eff0f2;
     padding: 14px 16px;
     color: #8ca4b3;
+    margin: 0 1.5rem;
     &:focus,
     &:active,
     &:focus-visible {

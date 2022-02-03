@@ -22,3 +22,7 @@ export const SearchContainer = styled.div`
         padding-bottom: 8px;
     }
 `;
+
+export const SearchTools = styled.div`
+    display: flex;
+`;

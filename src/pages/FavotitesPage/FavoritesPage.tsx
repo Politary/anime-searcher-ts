@@ -3,24 +3,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/root.reducer';
 import {
     filterFavorites,
-    clearFavorites,
+    // setSearchOptions,
+    setSearchQuery,
+    setSearchOrder,
 } from '../../store/favorites/favorites.slice';
 
 import { CardRow } from '../../modules/common/components/CardRow/CardRow';
 import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
 import { DropdownSelect } from '../../modules/common/components/Select/DropdownSelect';
-import { SearchContainer, Tools } from '../AnimesPage/AnimePage.styles';
+import {
+    SearchContainer,
+    SearchTools,
+    Tools,
+} from '../AnimesPage/AnimePage.styles';
 import React, { useEffect, useState } from 'react';
-import { SearchOptions } from '../../types/types';
 
 export const FavoritesPage = () => {
     const dispatch = useDispatch();
     const favorites = useSelector((state: RootState) => state.favorites);
 
-    const [searchOptions, setSearchOptions] = useState<Partial<SearchOptions>>({
-        q: '',
-        order_by: 'score',
-    });
     const orderByItems = [];
     orderByItems.push(
         { name: 'Score', value: 'score' },
@@ -31,53 +32,44 @@ export const FavoritesPage = () => {
     );
 
     const handleOrderByChange = (value: string): void => {
-        setSearchOptions((prevState) => ({
-            ...prevState,
-            order_by: value,
-        }));
+        dispatch(setSearchOrder(value));
     };
 
     const handleChange = (e: React.FormEvent<EventTarget>): void => {
         let target = e.target as HTMLInputElement;
-        setSearchOptions((prevState) => ({
-            ...prevState,
-            q: target.value.toString(),
-        }));
+        dispatch(setSearchQuery(target.value.toString()));
     };
 
     const handleSearch = () => {
-        dispatch(filterFavorites(searchOptions));
-    };
-
-    const handleClear = () => {
-        dispatch(clearFavorites());
+        dispatch(filterFavorites(favorites.options));
     };
 
     useEffect(() => {
-        dispatch(filterFavorites(searchOptions));
-    }, [searchOptions]);
+        dispatch(filterFavorites(favorites.options));
+    }, [favorites.options]);
 
     return (
         <div>
             <SearchContainer>
-                <h3>Favorites</h3>
-                <SearchBar
-                    value={searchOptions.q}
-                    placeholder="Filter by Name"
-                    handleChange={handleChange}
-                    handleSubmit={handleSearch}
-                />
-                <DropdownSelect
-                    handleChange={handleOrderByChange}
-                    value={searchOptions.order_by}
-                    items={orderByItems}
-                />
+                <h2>Favorites</h2>
+                <SearchTools>
+                    <SearchBar
+                        value={favorites.options.q}
+                        placeholder="Filter by Name"
+                        handleChange={handleChange}
+                        handleSubmit={handleSearch}
+                    />
+                    <DropdownSelect
+                        handleChange={handleOrderByChange}
+                        value={favorites.options.order_by}
+                        items={orderByItems}
+                    />
+                </SearchTools>
             </SearchContainer>
             <Tools>
                 <span>{`${favorites.filteredList.length} titles`}</span>
                 <div />
             </Tools>
-            {/*<CustomButton handleSubmit={handleClear}>Clear</CustomButton>*/}
             <CardRow list={favorites.filteredList} wrapOption={true} />
         </div>
     );
