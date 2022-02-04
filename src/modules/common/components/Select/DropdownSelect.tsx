@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { OptionsSelect } from '../../../../types/types';
+import { IPosition, OptionsSelect } from '../../../../types/types';
 import {
     DropdownBody,
     DropdownContainer,
@@ -41,7 +41,16 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
     const dropdownRef = useRef(null);
     const optionsRef = useRef(null);
     const [expanded, setExpanded] = useState<boolean>(false);
-    const [bodyPosition, setBodyPosition] = useState<any>(null);
+    const [bodyPosition, setBodyPosition] = useState<IPosition>({
+        bottom: 0,
+        height: 0,
+        left: 0,
+        right: 0,
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
+    });
 
     const activeName = items.filter((obj) => {
         return obj.value === value;
@@ -49,7 +58,7 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
 
     const mountBody = (dropdownRef: React.RefObject<Element>) => {
         const position = dropdownRef.current?.getBoundingClientRect();
-        setBodyPosition(position);
+        if (position) setBodyPosition(position);
     };
 
     const toggle = () => {
