@@ -4,12 +4,23 @@ import {
     PaginationContainer,
     PaginationText,
 } from './Pagination.styles';
+import { Dispatch, SetStateAction } from 'react';
 
 import { ReactComponent as ArrowRight } from '../../../../assets/images/svg/arrow-right.svg';
 import { ReactComponent as ArrowLeft } from '../../../../assets/images/svg/arrow-left.svg';
 import { useState } from 'react';
 
-export const Pagination: React.FC<any> = ({ options, lastPage, setPage }) => {
+interface IPagination {
+    options: SearchOptions;
+    lastPage: number;
+    setPage: Dispatch<SetStateAction<SearchOptions>>;
+}
+
+export const Pagination: React.FC<IPagination> = ({
+    options,
+    lastPage,
+    setPage,
+}) => {
     const [expanded, setExpanded] = useState<boolean>(false);
     const goToPrevPage = () => {
         setPage((prevState: SearchOptions) => ({

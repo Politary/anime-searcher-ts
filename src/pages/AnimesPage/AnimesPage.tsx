@@ -44,13 +44,6 @@ export const AnimesPage = () => {
         }));
     };
 
-    const handleSortChange = (value: string): void => {
-        setSearchOptions((prevState) => ({
-            ...prevState,
-            sort: value,
-        }));
-    };
-
     const handleChange = (e: React.FormEvent<EventTarget>): void => {
         let target = e.target as HTMLInputElement;
         setSearchOptions((prevState) => ({
@@ -82,7 +75,7 @@ export const AnimesPage = () => {
                 <SearchTools>
                     <SearchBar
                         value={searchOptions.q}
-                        placeholder="Search by Name, Author, Company"
+                        placeholder="Search by Name"
                         handleChange={handleChange}
                         handleSubmit={handleSearch}
                     />
@@ -106,7 +99,6 @@ export const AnimesPage = () => {
                 </Tools>
             ) : null}
             {animeList}
-            <button onClick={() => localStorage.clear()}>123</button>
             {titles.status === 'loaded' && lastPage ? (
                 <Tools>
                     <span>{`${

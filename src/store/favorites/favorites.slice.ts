@@ -42,23 +42,15 @@ const favoritesSlice = createSlice({
             action: PayloadAction<Partial<SearchOptions>>
         ) => {
             console.log(action.payload);
-            state.filteredList = state.list.filter(
-                //@ts-ignore
-                (task) =>
-                    task.title
-                        .toLowerCase()
-                        .includes(action.payload.q!.toLowerCase())
+            state.filteredList = state.list.filter((task) =>
+                task.title
+                    .toLowerCase()
+                    .includes(action.payload.q!.toLowerCase())
             );
             if (action.payload.order_by === 'title')
                 state.filteredList = state.filteredList.sort(compareTitle);
             if (action.payload.order_by === 'score')
                 state.filteredList = state.filteredList.sort(compareScore);
-        },
-        clearFavorites: (state) => {
-            state.list = [];
-        },
-        setSearchOptions: (state, action: PayloadAction<any>) => {
-            console.log('123');
         },
         setSearchQuery: (state, action) => {
             state.options.q = action.payload;
@@ -74,8 +66,6 @@ export const {
     addToFavorites,
     removeFromFavorites,
     filterFavorites,
-    clearFavorites,
-    setSearchOptions,
     setSearchOrder,
     setSearchQuery,
 } = favoritesSlice.actions;
