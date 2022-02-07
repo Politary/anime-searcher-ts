@@ -16,8 +16,11 @@ import { ReactComponent as Left } from '../../../assets/images/svg/buttonSlideLe
 import { ReactComponent as Right } from '../../../assets/images/svg/buttonSlideRight.svg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { FetchTitles, TitleObject } from '../../../types/titleTypes';
 
-export const Hero: React.FC<any> = ({ titles }) => {
+type Ititles = { titles: Pick<FetchTitles, 'list' | 'status'> };
+
+export const Hero: React.FC<Ititles> = ({ titles }) => {
     const [slide, setSlide] = useState<number>(0);
     const count = 3;
 
