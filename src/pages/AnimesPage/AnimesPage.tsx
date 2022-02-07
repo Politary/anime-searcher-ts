@@ -86,11 +86,9 @@ export const AnimesPage = () => {
                     />
                 </SearchTools>
             </SearchContainer>
-            {titles.status === 'loaded' && lastPage ? (
+            {titles.status === 'loaded' && lastPage && titles.list.length ? (
                 <Tools>
-                    <span>{`${
-                        (lastPage - 1) * 25 + titles.list.length
-                    } titles`}</span>
+                    <span>{`${lastPage} pages`}</span>
                     <Pagination
                         options={searchOptions}
                         lastPage={lastPage}
@@ -99,11 +97,9 @@ export const AnimesPage = () => {
                 </Tools>
             ) : null}
             {animeList}
-            {titles.status === 'loaded' && lastPage ? (
+            {titles.status === 'loaded' && lastPage && titles.list.length ? (
                 <Tools>
-                    <span>{`${
-                        (lastPage - 1) * 25 + titles.list.length
-                    } titles`}</span>
+                    <span>{`${lastPage} pages`}</span>
                     <Pagination
                         options={searchOptions}
                         lastPage={lastPage}

@@ -16,7 +16,7 @@ import {
     SearchTools,
     Tools,
 } from '../AnimesPage/AnimePage.styles';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 export const FavoritesPage = () => {
     const dispatch = useDispatch();

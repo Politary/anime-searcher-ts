@@ -97,7 +97,7 @@ export const DropdownSelect: React.FC<OptionsSelect> = ({
                                   activeValue={value}
                                   value={item.value}
                                   key={item.value}
-                                  onClick={() => valueSubmit(item.value as any)}
+                                  onClick={() => valueSubmit(item.value)}
                               >
                                   {item.name}
                               </DropdownItem>

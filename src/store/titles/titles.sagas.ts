@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import {
     getTitles,
     getTitlesSuccess,
@@ -49,7 +49,7 @@ function* getTitlesAction(action: PayloadAction<SearchOptions>) {
 }
 
 function* titlesSaga() {
-    yield takeEvery(getTitles, getTitlesAction);
+    yield takeLatest(getTitles, getTitlesAction);
 }
 
 export default titlesSaga;
