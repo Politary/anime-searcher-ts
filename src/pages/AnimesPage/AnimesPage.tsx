@@ -10,7 +10,7 @@ import { SearchContainer, SearchTools, Tools } from './AnimePage.styles';
 import { Loading } from '../../modules/layout/components/Layout/Layout.styles';
 import { DropdownSelect } from '../../modules/common/components/Select/DropdownSelect';
 
-export const AnimesPage = () => {
+export const AnimesPage: React.FC = () => {
     const dispatch = useDispatch();
     const titles = useSelector((state: RootState) => state.titles);
 
