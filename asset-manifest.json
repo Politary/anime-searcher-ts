@@ -1,13 +1,29 @@
 {
   "files": {
-    "main.css": "/anime-searcher-ts/static/css/main.f62d2fe0.css",
-    "main.js": "/anime-searcher-ts/static/js/main.0feea7ae.js",
+    "main.css": "/anime-searcher-ts/static/css/main.5e91e59c.css",
+    "main.js": "/anime-searcher-ts/static/js/main.2af900a7.js",
+    "static/media/Logo.svg": "/anime-searcher-ts/static/media/Logo.4ca00266d44526a2ef5276cc51add9b1.svg",
+    "static/media/heart-active.svg": "/anime-searcher-ts/static/media/heart-active.bed6bb8579bfcec267c6e338d52b8511.svg",
     "index.html": "/anime-searcher-ts/index.html",
-    "main.f62d2fe0.css.map": "/anime-searcher-ts/static/css/main.f62d2fe0.css.map",
-    "main.0feea7ae.js.map": "/anime-searcher-ts/static/js/main.0feea7ae.js.map"
+    "static/media/heart-outlined.svg": "/anime-searcher-ts/static/media/heart-outlined.688cd7b6946d8a6bc98895ff5b455584.svg",
+    "static/media/home-active.svg": "/anime-searcher-ts/static/media/home-active.447a6094c782c9585bdad191fa5c2b91.svg",
+    "static/media/play-circle-active.svg": "/anime-searcher-ts/static/media/play-circle-active.8ea21fe25692ae2241a9fe7192103026.svg",
+    "static/media/buttonSlideLeft.svg": "/anime-searcher-ts/static/media/buttonSlideLeft.4a82f886f27f9e4ce896a90eb6794493.svg",
+    "static/media/play-circle.svg": "/anime-searcher-ts/static/media/play-circle.a6a727c626b06ed99f72fa71ec5ebbd3.svg",
+    "static/media/search.svg": "/anime-searcher-ts/static/media/search.bc28e9e434ca7a57e9a6b45fdb717a2c.svg",
+    "static/media/arrow-left.svg": "/anime-searcher-ts/static/media/arrow-left.102e0c761fb022caa8094a8d4e44befb.svg",
+    "static/media/buttonSlideRight.svg": "/anime-searcher-ts/static/media/buttonSlideRight.be46ad188f9cf07573bafa294c237f04.svg",
+    "static/media/star-filled.svg": "/anime-searcher-ts/static/media/star-filled.62ab9900fc066d7b4ba72d9b77a6700b.svg",
+    "static/media/arrow-right.svg": "/anime-searcher-ts/static/media/arrow-right.147e1bc795e12a9ef3080590d1e8a201.svg",
+    "static/media/home.svg": "/anime-searcher-ts/static/media/home.96aab23557f7da16c93844774a04dcfe.svg",
+    "static/media/heart-filled.svg": "/anime-searcher-ts/static/media/heart-filled.57713482345e7c929532f7bf41ceb26e.svg",
+    "static/media/chevron-down.svg": "/anime-searcher-ts/static/media/chevron-down.036786d515972f4031251f801ac9571c.svg",
+    "static/media/ellipse1.svg": "/anime-searcher-ts/static/media/ellipse1.0e75ba797be3807d1518de85eb996919.svg",
+    "main.5e91e59c.css.map": "/anime-searcher-ts/static/css/main.5e91e59c.css.map",
+    "main.2af900a7.js.map": "/anime-searcher-ts/static/js/main.2af900a7.js.map"
   },
   "entrypoints": [
-    "static/css/main.f62d2fe0.css",
-    "static/js/main.0feea7ae.js"
+    "static/css/main.5e91e59c.css",
+    "static/js/main.2af900a7.js"
   ]
 }
