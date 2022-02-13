@@ -3,6 +3,7 @@ import { TitleObject, TitleObjectMin } from '../../types/titleTypes';
 import { compareTitle } from '../../utils/compareTitle';
 import { compareScore } from '../../utils/compareScore';
 import { SearchOptions } from '../../types/types';
+import { RootState } from '../root.reducer';
 
 export interface Favorites {
     list: TitleObjectMin[];
@@ -62,6 +63,9 @@ const favoritesSlice = createSlice({
 });
 
 export default favoritesSlice.reducer;
+export const favoritesSelector = (state: RootState): Favorites =>
+    state.favorites;
+
 export const {
     addToFavorites,
     removeFromFavorites,

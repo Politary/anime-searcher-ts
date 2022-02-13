@@ -6,7 +6,7 @@ export const StyledCard = styled.div`
     position: relative;
     flex-grow: 1;
     margin: 1rem;
-    width: 166px;
+    max-width: 166px;
 `;
 
 export const ImageContainer = styled.div`

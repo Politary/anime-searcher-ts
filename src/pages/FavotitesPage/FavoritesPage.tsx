@@ -1,11 +1,9 @@
-import { CustomButton } from '../../modules/common/components/CustomButton/CustomButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/root.reducer';
 import {
     filterFavorites,
-    // setSearchOptions,
     setSearchQuery,
     setSearchOrder,
+    favoritesSelector,
 } from '../../store/favorites/favorites.slice';
 
 import { CardRow } from '../../modules/common/components/CardRow/CardRow';
@@ -20,7 +18,7 @@ import React, { useEffect } from 'react';
 
 export const FavoritesPage = () => {
     const dispatch = useDispatch();
-    const favorites = useSelector((state: RootState) => state.favorites);
+    const favorites = useSelector(favoritesSelector);
 
     const orderByItems = [];
     orderByItems.push(

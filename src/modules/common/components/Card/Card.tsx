@@ -18,9 +18,9 @@ import {
     addToFavorites,
     removeFromFavorites,
     filterFavorites,
+    favoritesSelector,
 } from '../../../../store/favorites/favorites.slice';
-import { TitleObject, TitleObjectMin } from '../../../../types/titleTypes';
-import { RootState } from '../../../../store/root.reducer';
+import { TitleObjectMin } from '../../../../types/titleTypes';
 
 export const Card: React.FC<TitleObjectMin> = ({
     title,
@@ -30,7 +30,7 @@ export const Card: React.FC<TitleObjectMin> = ({
     duration,
     mal_id,
 }) => {
-    const favorites = useSelector((state: RootState) => state.favorites);
+    const favorites = useSelector(favoritesSelector);
     const dispatch = useDispatch();
 
     const handleFavoritesChange = () => {
@@ -59,31 +59,38 @@ export const Card: React.FC<TitleObjectMin> = ({
         dispatch(filterFavorites(favorites.options));
     };
 
+    let favoritesSvg;
+
+    if (
+        !favorites.list.filter((item: TitleObjectMin) => item.mal_id === mal_id)
+            .length
+    ) {
+        favoritesSvg = (
+            <SvgContainer onClick={handleFavoritesChange}>
+                <HeartOutlined
+                    fill="red"
+                    width="30px"
+                    height="30px"
+                    z-index="100"
+                />
+            </SvgContainer>
+        );
+    } else {
+        favoritesSvg = (
+            <SvgContainer onClick={handleFavoritesChange}>
+                <HeartFilled
+                    fill="red"
+                    width="30px"
+                    height="30px"
+                    z-index="100"
+                />
+            </SvgContainer>
+        );
+    }
+
     return (
         <StyledCard>
-            <Favorite>
-                {!favorites.list.filter(
-                    (item: TitleObjectMin) => item.mal_id === mal_id
-                ).length ? (
-                    <SvgContainer onClick={handleFavoritesChange}>
-                        <HeartOutlined
-                            fill="red"
-                            width="30px"
-                            height="30px"
-                            z-index="100"
-                        />
-                    </SvgContainer>
-                ) : (
-                    <SvgContainer onClick={handleFavoritesChange}>
-                        <HeartFilled
-                            fill="red"
-                            width="30px"
-                            height="30px"
-                            z-index="100"
-                        />
-                    </SvgContainer>
-                )}
-            </Favorite>
+            <Favorite>{favoritesSvg}</Favorite>
             <Link key={mal_id} to={`/animes/${mal_id}`}>
                 <ImageContainer image={images?.jpg.image_url}>
                     {score ? (
