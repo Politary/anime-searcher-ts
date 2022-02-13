@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppProps } from '../../../../types/types';
+import { AppProps } from '../../types/types';
 import { StyledSearchBar } from './SearchBar.styles';
 
 export const SearchBar: React.FC<AppProps> = ({

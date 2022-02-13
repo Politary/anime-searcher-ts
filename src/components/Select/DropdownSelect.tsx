@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { IPosition, OptionsSelect } from '../../../../types/types';
+import { IPosition, OptionsSelect } from '../../types/types';
 import {
     DropdownBody,
     DropdownContainer,
     DropdownHead,
     DropdownItem,
 } from './DropdownSelect.styles';
-import { ReactComponent as ChevronDown } from '../../../../assets/images/svg/chevron-down.svg';
+import { ReactComponent as ChevronDown } from '../../assets/images/svg/chevron-down.svg';
 import { SvgContainer } from '../Card/Card.styles';
 
 function useOutsideCollapse(

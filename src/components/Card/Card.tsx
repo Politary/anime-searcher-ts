@@ -10,17 +10,17 @@ import {
 } from './Card.styles';
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as HeartOutlined } from '../../../../assets/images/svg/heart-outlined.svg';
-import { ReactComponent as HeartFilled } from '../../../../assets/images/svg/heart-filled.svg';
-import { ReactComponent as StarFilled } from '../../../../assets/images/svg/star-filled.svg';
+import { ReactComponent as HeartOutlined } from '../../assets/images/svg/heart-outlined.svg';
+import { ReactComponent as HeartFilled } from '../../assets/images/svg/heart-filled.svg';
+import { ReactComponent as StarFilled } from '../../assets/images/svg/star-filled.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     addToFavorites,
     removeFromFavorites,
     filterFavorites,
     favoritesSelector,
-} from '../../../../store/favorites/favorites.slice';
-import { TitleObjectMin } from '../../../../types/titleTypes';
+} from '../../store/favorites/favorites.slice';
+import { TitleObjectMin } from '../../types/titleTypes';
 
 export const Card: React.FC<TitleObjectMin> = ({
     title,

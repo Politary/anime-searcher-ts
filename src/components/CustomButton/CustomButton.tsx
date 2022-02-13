@@ -1,4 +1,4 @@
-import { AppProps } from '../../../../types/types';
+import { AppProps } from '../../types/types';
 
 export const CustomButton: React.FC<AppProps> = ({
     handleSubmit,

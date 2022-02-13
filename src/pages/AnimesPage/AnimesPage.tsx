@@ -2,13 +2,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/root.reducer';
 import React, { useEffect, useState } from 'react';
 import { getTitles } from '../../store/titles/titles.slice';
-import { CardRow } from '../../modules/common/components/CardRow/CardRow';
+import { CardRow } from '../../components/CardRow/CardRow';
 import { SearchOptions } from '../../types/types';
-import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
-import { Pagination } from '../../modules/common/components/Pagination/Pagination';
+import { SearchBar } from '../../components/Searchbar/SearchBar';
+import { Pagination } from '../../components/Pagination/Pagination';
 import { SearchContainer, SearchTools, Tools } from './AnimePage.styles';
 import { Loading } from '../../modules/layout/components/Layout/Layout.styles';
-import { DropdownSelect } from '../../modules/common/components/Select/DropdownSelect';
+import { DropdownSelect } from '../../components/Select/DropdownSelect';
 
 export const AnimesPage: React.FC = () => {
     const dispatch = useDispatch();

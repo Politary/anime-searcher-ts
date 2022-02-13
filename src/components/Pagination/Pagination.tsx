@@ -1,4 +1,4 @@
-import { SearchOptions } from '../../../../types/types';
+import { SearchOptions } from '../../types/types';
 import {
     PaginationButton,
     PaginationContainer,
@@ -7,8 +7,8 @@ import {
 } from './Pagination.styles';
 import React, { Dispatch, SetStateAction } from 'react';
 
-import { ReactComponent as ArrowRight } from '../../../../assets/images/svg/arrow-right.svg';
-import { ReactComponent as ArrowLeft } from '../../../../assets/images/svg/arrow-left.svg';
+import { ReactComponent as ArrowRight } from '../../assets/images/svg/arrow-right.svg';
+import { ReactComponent as ArrowLeft } from '../../assets/images/svg/arrow-left.svg';
 import { useState } from 'react';
 
 interface IPagination {

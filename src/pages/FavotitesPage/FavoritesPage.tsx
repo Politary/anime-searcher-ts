@@ -6,9 +6,9 @@ import {
     favoritesSelector,
 } from '../../store/favorites/favorites.slice';
 
-import { CardRow } from '../../modules/common/components/CardRow/CardRow';
-import { SearchBar } from '../../modules/common/components/Searchbar/SearchBar';
-import { DropdownSelect } from '../../modules/common/components/Select/DropdownSelect';
+import { CardRow } from '../../components/CardRow/CardRow';
+import { SearchBar } from '../../components/Searchbar/SearchBar';
+import { DropdownSelect } from '../../components/Select/DropdownSelect';
 import {
     SearchContainer,
     SearchTools,

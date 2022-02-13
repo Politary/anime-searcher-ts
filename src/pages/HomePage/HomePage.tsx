@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { CardRow } from '../../modules/common/components/CardRow/CardRow';
+import { CardRow } from '../../components/CardRow/CardRow';
 import { RootState } from '../../store/root.reducer';
 import React, { useEffect } from 'react';
 
