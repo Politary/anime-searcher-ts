@@ -1,7 +1,9 @@
+html {
+  font-family: Be Vietnam Pro, sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: DM Sans,
-    sans-serif;
   line-height: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

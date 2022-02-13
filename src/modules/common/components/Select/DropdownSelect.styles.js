@@ -32,7 +32,6 @@ export const DropdownBody = styled.div`
 `;
 
 export const DropdownContainer = styled.div`
-    font-family: 'Be Vietnam Pro', sans-serif;
     box-sizing: border-box;
     color: #616c7a;
 `;

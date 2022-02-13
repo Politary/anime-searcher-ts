@@ -41,7 +41,6 @@ export const Content = styled.div`
 `;
 
 export const Details = styled.span`
-    font-family: Be Vietnam Pro, sans-serif;
     font-size: 20px;
     font-weight: 600;
     line-height: 28px;

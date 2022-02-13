@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 
 export const StyledCard = styled.div`
-    font-family: Be Vietnam Pro, sans-serif;
     font-weight: 600;
     position: relative;
     flex-grow: 1;
