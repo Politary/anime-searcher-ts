@@ -23,5 +23,5 @@ export const TitlePage = () => {
     if (title.status === 'idle') return <div />;
     if (title.status === 'loading') return <div>Loading</div>;
     if (title.status === 'error') return <div>Something went wrong</div>;
-    else return null;
+    return null;
 };

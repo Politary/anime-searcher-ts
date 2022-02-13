@@ -7,21 +7,21 @@ import {
     HeaderText,
 } from './Header.styles';
 
-import { ReactComponent as Logo } from '../../../../assets/images/svg/Logo.svg';
+import { ReactComponent as Logo } from '../../assets/images/svg/Logo.svg';
 
-import { ReactComponent as Search } from '../../../../assets/images/svg/search.svg';
+import { ReactComponent as Search } from '../../assets/images/svg/search.svg';
 
-import { ReactComponent as HomeActive } from '../../../../assets/images/svg/home-active.svg';
+import { ReactComponent as HomeActive } from '../../assets/images/svg/home-active.svg';
 
-import { ReactComponent as Home } from '../../../../assets/images/svg/home.svg';
+import { ReactComponent as Home } from '../../assets/images/svg/home.svg';
 
-import { ReactComponent as PlayCircle } from '../../../../assets/images/svg/play-circle.svg';
+import { ReactComponent as PlayCircle } from '../../assets/images/svg/play-circle.svg';
 
-import { ReactComponent as PlayCircleActive } from '../../../../assets/images/svg/play-circle-active.svg';
+import { ReactComponent as PlayCircleActive } from '../../assets/images/svg/play-circle-active.svg';
 
-import { ReactComponent as HeartOutlined } from '../../../../assets/images/svg/heart-outlined.svg';
+import { ReactComponent as HeartOutlined } from '../../assets/images/svg/heart-outlined.svg';
 
-import { ReactComponent as HeartActive } from '../../../../assets/images/svg/heart-active.svg';
+import { ReactComponent as HeartActive } from '../../assets/images/svg/heart-active.svg';
 import { useMatch } from 'react-router-dom';
 
 export const Header = () => {

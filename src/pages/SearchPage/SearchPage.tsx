@@ -44,9 +44,8 @@ export const SearchPage = () => {
                 handleSubmit={handleSearch}
             />
             <CustomButton handleSubmit={handleSearch}>Search</CustomButton>
-            {/*<CardRow titles={titles} />*/}
 
-            {(() => {
+            {() => {
                 if (titles.status === 'loaded') {
                     return <CardRow list={titles.list} />;
                 }
@@ -59,7 +58,7 @@ export const SearchPage = () => {
                 if (titles.status === 'error') {
                     return <div>Something went wrong</div>;
                 }
-            })()}
+            }}
         </div>
     );
 };

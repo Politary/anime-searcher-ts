@@ -7,8 +7,8 @@ import { SearchOptions } from '../../types/types';
 import { SearchBar } from '../../components/Searchbar/SearchBar';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { SearchContainer, SearchTools, Tools } from './AnimePage.styles';
-import { Loading } from '../../modules/layout/components/Layout/Layout.styles';
-import { DropdownSelect } from '../../components/Select/DropdownSelect';
+import { Loading } from '../../components/Layout/Layout.styles';
+import { DropdownSelect } from '../../components/DropdownSelect/DropdownSelect';
 
 export const AnimesPage: React.FC = () => {
     const dispatch = useDispatch();
@@ -60,13 +60,12 @@ export const AnimesPage: React.FC = () => {
         dispatch(getTitles(searchOptions));
     }, [searchOptions]);
 
-    let animeList;
+    let animeList = null;
+    if (titles.status === 'loading') animeList = <Loading>Loading...</Loading>;
+    if (titles.status === 'error') animeList = <div>Something went wrong</div>;
     if (titles.status === 'loaded') {
         animeList = <CardRow list={titles.list} wrapOption={true} />;
     }
-    if (titles.status === 'idle') animeList = null;
-    if (titles.status === 'loading') animeList = <Loading>Loading...</Loading>;
-    if (titles.status === 'error') animeList = <div>Something went wrong</div>;
 
     return (
         <div>

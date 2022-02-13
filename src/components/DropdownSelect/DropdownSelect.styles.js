@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { dropdownBodyPosition } from '../../utils/dropDownBodyPosition';
 
 export const DropdownHead = styled.div`
     display: flex;
@@ -25,9 +26,7 @@ export const DropdownBody = styled.div`
     border-radius: 0.75rem;
     filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.3));
     left: ${(props) =>
-        props.bodyPosition.left +
-        -((200 - props.bodyPosition.width) / 2) +
-        'px'};
+        dropdownBodyPosition(props.bodyPosition.left, props.bodyPosition.width)}
     box-sizing: border-box;
 `;
 

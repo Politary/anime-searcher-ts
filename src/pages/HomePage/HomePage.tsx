@@ -24,6 +24,8 @@ export const HomePage = () => {
         dispatch(getTitles(searchOptions));
     }, []);
 
+    if (ongoings.status === 'loading' || 'idle') return <div>Loading</div>;
+    if (ongoings.status === 'error') return <div>Something went wrong</div>;
     if (ongoings.status === 'loaded')
         return (
             <div>
@@ -34,7 +36,5 @@ export const HomePage = () => {
                 </Container>
             </div>
         );
-    if (ongoings.status === 'loading' || 'idle') return <div>Loading</div>;
-    if (ongoings.status === 'error') return <div>Something went wrong</div>;
-    else return null;
+    return null;
 };

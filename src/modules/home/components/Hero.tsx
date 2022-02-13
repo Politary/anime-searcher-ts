@@ -57,50 +57,49 @@ export const Hero: React.FC<Ititles> = ({ titles }) => {
         else setSlide(2);
     };
 
-    if (titles.status === 'loaded')
-        return (
-            <ImageContainer
-                image={titles.list[slide].trailer.images.maximum_image_url}
-            >
-                <Container>
-                    <Content>
-                        <h3>{titles.list[slide].title}</h3>
-                        <div>
-                            <Details>
-                                {`${titles.list[slide].type} • ${
-                                    titles.list[slide].duration
-                                } 
+    if (titles.list[slide].status === 'idle') return <div />;
+    if (titles.list[slide].status === 'loading') return <div>Loading</div>;
+    if (titles.list[slide].status === 'error')
+        if (titles.status === 'loaded')
+            return (
+                <ImageContainer
+                    image={titles.list[slide].trailer.images.maximum_image_url}
+                >
+                    <Container>
+                        <Content>
+                            <h3>{titles.list[slide].title}</h3>
+                            <div>
+                                <Details>
+                                    {`${titles.list[slide].type} • ${
+                                        titles.list[slide].duration
+                                    } 
                                 ${
                                     titles.list[slide].type === 'TV'
                                         ? '/ep'
                                         : null
                                 }`}
-                            </Details>
-                            <Tools>
-                                <Link
-                                    key={titles.list[slide].mal_id}
-                                    to={`/animes/${titles.list[slide].mal_id}`}
-                                >
-                                    <StyledButton>Watch now</StyledButton>
-                                </Link>
-                                <Dots>{dots.map((item) => item)}</Dots>
-                                <Arrows>
-                                    <Arrow onClick={prevSlide}>
-                                        <Left />
-                                    </Arrow>
-                                    <Arrow onClick={nextSlide}>
-                                        <Right />
-                                    </Arrow>
-                                </Arrows>
-                            </Tools>
-                        </div>
-                    </Content>
-                </Container>
-            </ImageContainer>
-        );
-    if (titles.list[slide].status === 'idle') return <div />;
-    if (titles.list[slide].status === 'loading') return <div>Loading</div>;
-    if (titles.list[slide].status === 'error')
-        return <div>Something went wrong</div>;
-    else return null;
+                                </Details>
+                                <Tools>
+                                    <Link
+                                        key={titles.list[slide].mal_id}
+                                        to={`/animes/${titles.list[slide].mal_id}`}
+                                    >
+                                        <StyledButton>Watch now</StyledButton>
+                                    </Link>
+                                    <Dots>{dots.map((item) => item)}</Dots>
+                                    <Arrows>
+                                        <Arrow onClick={prevSlide}>
+                                            <Left />
+                                        </Arrow>
+                                        <Arrow onClick={nextSlide}>
+                                            <Right />
+                                        </Arrow>
+                                    </Arrows>
+                                </Tools>
+                            </div>
+                        </Content>
+                    </Container>
+                </ImageContainer>
+            );
+    return <div>Something went wrong</div>;
 };

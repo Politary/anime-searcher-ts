@@ -8,7 +8,7 @@ import {
 
 import { CardRow } from '../../components/CardRow/CardRow';
 import { SearchBar } from '../../components/Searchbar/SearchBar';
-import { DropdownSelect } from '../../components/Select/DropdownSelect';
+import { DropdownSelect } from '../../components/DropdownSelect/DropdownSelect';
 import {
     SearchContainer,
     SearchTools,

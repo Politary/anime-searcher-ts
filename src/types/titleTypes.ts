@@ -64,13 +64,13 @@ export interface TitleObject {
     season: string;
     year: number;
     broadcast: TitleObjectBroadcast;
-    producers: TitleObjectProducers[];
+    producers: TitleObjectItem[];
     licensors: any[];
-    studios: TitleObjectStudios[];
-    genres: TitleObjectGenres[];
+    studios: TitleObjectItem[];
+    genres: TitleObjectItem[];
     explicit_genres: any[];
-    themes: TitleObjectThemes[];
-    demographics: TitleObjectDemographics[];
+    themes: TitleObjectItem[];
+    demographics: TitleObjectItem[];
 }
 export interface TitleObjectImagesJpg {
     image_url: string;
@@ -119,37 +119,15 @@ export interface TitleObjectAired {
     prop: TitleObjectAiredProp;
     string: string;
 }
+
 export interface TitleObjectBroadcast {
     day: string;
     time: string;
     timezone: string;
     string: string;
 }
-export interface TitleObjectProducers {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-}
-export interface TitleObjectStudios {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-}
-export interface TitleObjectGenres {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-}
-export interface TitleObjectThemes {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-}
-export interface TitleObjectDemographics {
+
+export interface TitleObjectItem {
     mal_id: number;
     type: string;
     name: string;

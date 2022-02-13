@@ -4,7 +4,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { AnimesPage } from './pages/AnimesPage/AnimesPage';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 
-import { Layout } from './modules/layout/components/Layout/Layout';
+import { Layout } from './components/Layout/Layout';
 import { TitlePage } from './pages/TitlePage/TitlePage';
 import { FavoritesPage } from './pages/FavotitesPage/FavoritesPage';
 
